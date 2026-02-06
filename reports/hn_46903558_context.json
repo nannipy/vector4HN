@@ -1,0 +1,1176 @@
+{
+  "story": {
+    "by": "anurag",
+    "descendants": 262,
+    "id": 46903558,
+    "kids": [
+      46906201,
+      46904972,
+      46905344,
+      46911346,
+      46910621,
+      46910652,
+      46905872,
+      46904966,
+      46907474,
+      46906155,
+      46910273,
+      46905784,
+      46910348,
+      46911030,
+      46909085,
+      46911224,
+      46910793,
+      46906443,
+      46905849,
+      46908694,
+      46910437,
+      46908487,
+      46906298,
+      46905043,
+      46909386,
+      46909577,
+      46908280,
+      46907386,
+      46912459,
+      46905275,
+      46904820,
+      46907333,
+      46911503,
+      46905118,
+      46907978,
+      46907696,
+      46906513,
+      46910155,
+      46908082,
+      46906090,
+      46906488,
+      46911526,
+      46906014,
+      46905945,
+      46905853,
+      46910792,
+      46906392,
+      46905846,
+      46905486,
+      46904796,
+      46904752,
+      46905979
+    ],
+    "score": 695,
+    "time": 1770318280,
+    "title": "My AI Adoption Journey",
+    "type": "story",
+    "url": "https://mitchellh.com/writing/my-ai-adoption-journey"
+  },
+  "article_text": "My AI Adoption Journey \u2013 Mitchell Hashimoto Mitchell Hashimoto Mitchell Hashimoto My AI Adoption Journey February 5, 2026 Table of Contents Step 1: Drop the Chatbot Step 2: Reproduce Your Own Work Step 3: End-of-Day Agents Step 4: Outsource the Slam Dunks Step 5: Engineer the Harness Step 6: Always Have an Agent Running Today My experience adopting any meaningful tool is that I've necessarily\ngone through three phases: (1) a period of inefficiency (2) a period\nof adequacy, then finally (3) a period of workflow and life-altering\ndiscovery. In most cases, I have to force myself through phase 1 and 2 because\nI usually have a workflow I'm already happy and comfortable with.\nAdopting a tool feels like work, and I do not want to\nput in the effort, but I usually do in an effort to be a well-rounded\nperson of my craft. This is my journey of how I found value in AI tooling and what I'm\ntrying next with it. In an ocean of overly dramatic, hyped takes,\nI hope this represents a more nuanced, measured approach to my views\non AI and how they've changed over time. This blog post was fully written by hand, in my own words. I hate that I have to say that but\nespecially given the subject matter, I want to be explicit about it. Step 1: Drop the Chatbot Immediately cease trying to perform meaningful work via a chatbot\n(e.g. ChatGPT, Gemini on the web, etc.). Chatbots have real value\nand are a daily part of my AI workflow, but their utility in coding\nis highly limited because you're mostly hoping they come up with the\nright results based on their prior training, and correcting them\ninvolves a human (you) to tell them they're wrong repeatedly. It is\ninefficient. I think everyone's first experience with AI is a chat interface.\nAnd I think everyone's first experience trying to code with AI has\nbeen asking a chat interface to write code. While I was still a heavy AI skeptic, my first \"oh wow\" moment\nwas pasting a screenshot of Zed's command palette into Gemini, asking\nit to reproduce it with SwiftUI, and being truly flabbergasted that it\ndid it very well . The command palette that ships for macOS in Ghostty\ntoday is only very lightly modified from what Gemini produced for me\nin seconds. But when I tried to reproduce that behavior for other tasks, I was left\ndisappointed. In the context of brownfield projects, I found the chat\ninterface produced poor results very often, and I found myself very\nfrustrated copying and pasting code and command output to and from\nthe interface. It was very obviously far less efficient than me doing\nthe work myself. To find value, you must use an agent . An agent is the industry-adopted\nterm for an LLM that can chat and invoke external behavior in a loop 1 At a bare minimum, the agent must have the ability to: read files,\nexecute programs, and make HTTP requests. Step 2: Reproduce Your Own Work The next phase on my journey I tried Claude Code . I'll cut to the\nchase: I initially wasn't impressed. I just wasn't getting good results\nout of my sessions. I felt I had to touch up everything it produced and\nthis process was taking more time than if I had just done it myself.\nI read blog posts, watched videos, but just wasn't that impressed. Instead of giving up, I forced myself to reproduce all my manual commits\nwith agentic ones. I literally did the work twice. I'd do the work manually,\nand then I'd fight an agent to produce identical results in terms of quality\nand function (without it being able to see my manual solution, of course). This was excruciating , because it got in the way of simply getting things\ndone. But I've been around the block with non-AI tools enough to know that\nfriction is natural, and I can't come to a firm, defensible conclusion\nwithout exhausting my efforts. But, expertise formed. I quickly discovered for myself from first principles\nwhat others were already saying, but discovering it myself resulted in\na stronger fundamental understanding. Break down sessions into separate clear, actionable tasks. Don't try\nto \"draw the owl\" in one mega session. For vague requests, split the work into separate planning vs. execution\nsessions. If you give an agent a way to verify its work, it more often than\nnot fixes its own mistakes and prevents regressions. More generally, I also found the edges of what agents -- at the time --\nwere good at, what they weren't good at, and for the tasks they were good at\nhow to achieve the results I wanted. All of this led to significant efficiency gains, to the point where I was\nstarting to naturally use agents in a way that I felt was no slower than\ndoing it myself (but I still didn't feel it was any faster, since I was mostly\nbabysitting an agent). The negative space here is worth reiterating: part of the efficiency gains\nhere were understanding when not to reach for an agent. Using an agent\nfor something it'll likely fail at is obviously a big waste of time and\nhaving the knowledge to avoid that completely leads to time savings 2 . At this stage, I was finding adequate value with agents that I was happy\nto use them in my workflow, but still didn't feel like I was seeing any\nnet efficiency gains. I didn't care though, I was content at this point\nwith AI as a tool. Step 3: End-of-Day Agents To try to find some efficiency, I next started up a new pattern: block out the last 30 minutes of every day to kick off one or more agents. My hypothesis was that perhaps I could gain some efficiency if the agent\ncan make some positive progress in the times I can't work anyways.\nBasically: instead of trying to do more in the time I have, try to do\nmore in the time I don't have. Similar to the previous task, I at first found this both unsuccessful\nand annoying. But, I once again quickly found different categories of work\nthat were really helpful: Deep research sessions where I'd ask agents to survey some\nfield, such as finding all libraries in a specific language with\na specific license type and producing multi-page summaries for each\non their pros, cons, development activity, social sentiment, etc. Parallel agents attempting different vague ideas I had but didn't\nhave time to get started on. I didn't expect them to produce something\nI'd ever ship here, but perhaps could illuminate some unknown unknowns\nwhen I got to the task the next day. Issue and PR triage/review. Agents are good at using gh (GitHub CLI),\nso I manually scripted a quick way to spin up a bunch in parallel to\ntriage issues. I would NOT allow agents to respond, I just wanted\nreports the next day to try to guide me towards high value or low effort\ntasks. To be clear, I did not go as far as others went to have agents running\nin loops all night. In most cases, agents completed their tasks in less than\nhalf an hour. But, the latter part of the working day, I'm usually tired\nand coming out of flow and find myself too personally inefficient, so\nshifting my effort to spinning up these agents I found gave me a \"warm start\"\nthe next morning that got me working more quickly than I would've otherwise. I was happy, and I was starting to feel like I was doing more than I was\ndoing prior to AI, if only slightly. Step 4: Outsource the Slam Dunks By this point, I was getting very confident about what tasks my AI was\nand wasn't great at. I had really high confidence with certain tasks that\nthe AI would achieve a mostly-correct solution. So the next step on my\njourney was: let agents do all of that work while I worked on other tasks. More specifically, I would start each day by taking the results of my\nprior night's triage agents, filter them manually to find the issues that\nan agent will almost certainly solve well, and then keep them going\nin the background (one at a time, not in parallel). Meanwhile, I'd work on something else. I wasn't going to social media\n(any more than usual without AI), I wasn't watching videos, etc. I was\nin my own, normal, pre-AI deep thinking mode working on something I\nwanted to work on or had to work on. Very important at this stage: turn off agent desktop notifications. Context switching is very expensive. In order to remain efficient, I\nfound that it was my job as a human to be in control of when I interrupt\nthe agent, not the other way around. Don't let the agent notify you.\nDuring natural breaks in your work, tab over and check on it, then\ncarry on. Importantly, I think the \"work on something else\" helps counteract\nthe highly publicized Anthropic skill formation paper .\nWell, you're trading off: not forming skills for the tasks you're\ndelegating to the agent while continuing to form skills naturally\nin the tasks you continue to work on manually. At this point I was firmly in the \"no way I can go back\" territory.\nI felt more efficient, but even if I wasn't, the thing I liked the most\nwas that I could now focus my coding and thinking on tasks I really loved\nwhile still adequately completing the tasks I didn't. Step 5: Engineer the Harness At risk of stating the obvious: agents are much more efficient when they\nproduce the right result the first time, or at worst produce a result that\nrequires minimal touch-ups. The most sure-fire way to achieve this is\nto give the agent fast, high quality tools to automatically tell it\nwhen it is wrong. I don't know if there is a broad industry-accepted term for this yet,\nbut I've grown to calling this \"harness engineering.\" It is the idea that\nanytime you find an agent makes a mistake, you take the time to engineer\na solution such that the agent never makes that mistake again. I don't need\nto invent any new terms here; if another one exists, I'll jump on the\nbandwagon. This comes in two forms: Better implicit prompting (AGENTS.md). For simple things, like\nthe agent repeatedly running the wrong commands or finding the wrong\nAPIs, update the AGENTS.md (or equivalent). Here is an example from Ghostty .\nEach line in that file is based on a bad agent behavior, and it almost\ncompletely resolved them all. Actual, programmed tools. For example, scripts to take screenshots,\nrun filtered tests, etc etc. This is usually paired with an AGENTS.md\nchange to let it know about this existing. This is where I'm at today. I'm making an earnest effort whenever I see\nan agent do a Bad Thing to prevent it from ever doing that bad thing again.\nOr, conversely, I'm making an earnest effort for agents to be able to\nverify they're doing a Good Thing. Step 6: Always Have an Agent Running Simultaneous to step 5, I'm also operating under the goal of having an agent running at all times. If an agent isn't running,\nI ask myself \"is there something an agent could be doing for me right now?\" I particularly like to combine this with slower, more thoughtful\nmodels like Amp's deep mode (which\nis basically just GPT-5.2-Codex) which can take upwards of 30+ minutes\nto make small changes. The flip side of that is that it does tend to\nproduce very good results. I'm not [yet?] running multiple agents, and currently don't really want to. I find having the one agent running is a good balance for me right now\nbetween being able to do deep, manual work I find enjoyable, and babysitting\nmy kind of stupid and yet mysteriously productive robot friend. The \"have an agent running at all times\" goal is still just a goal.\nI'd say right now I'm maybe effective at having a background agent running\n10 to 20% of a normal working day. But, I'm actively working to improve that. I don't want to run agents for the sake of running agents. I only want to run them when there\nis a task I think would be truly helpful to me. Part of the challenge of this goal is improving my\nown workflows and tools so that I can have a constant stream of high quality work to do that I can\ndelegate. Which, even without AI, is important! Today And that's where I'm at today. Through this journey, I've personally reached a point where I'm having\nsuccess with modern AI tooling and I believe I'm approaching it with the\nproper measured view that is grounded in reality. I really don't care\none way or the other if AI is here to stay 3 , I'm a software craftsman\nthat just wants to build stuff for the love of the game. The whole landscape is moving so rapidly that I'm sure I'll look back\nat this post very quickly and laugh at my naivete. But, as they say,\nif you can't be embarassed about your past self, you're probably not\ngrowing. I just hope I'll grow in the right direction! I have no skin in the game here 4 , and there are of course other\nreasons behind utility to avoid using AI. I fully respect anyone's\nindividual decisions regarding it. I'm not here to convince you! For\nthose interested, I just wanted to share my personal approach to navigating\nthese new tools and give a glimpse about how I approach new tools in general , regardless of AI. Footnotes Modern coding models like Opus and Codex are specifically trained\nto bias towards using tools compared to conversational models. \u21a9 Due to the rapid pace of innovation in models, I have to constantly\nrevisit my priors on this one. \u21a9 The skill formation issues particularly in juniors without a\nstrong grasp of fundamentals deeply worries me, however. \u21a9 I don't work for, invest in, or advise any AI companies. \u21a9 February 5, 2026",
+  "comments": [
+    {
+      "by": "libraryofbabel",
+      "id": 46906201,
+      "kids": [
+        46907458,
+        46908023,
+        46911071,
+        46909134,
+        46906573,
+        46907801,
+        46910803,
+        46909469,
+        46907094,
+        46911762,
+        46906539,
+        46908141,
+        46909665,
+        46906335
+      ],
+      "parent": 46903558,
+      "text": "This is such a lovely balanced thoughtful refreshingly hype-free post to read. 2025 really was the year when things shifted and many first-rate developers (often previously AI skeptics, as Mitchell was) found the tools had actually got good enough that they could incorporate AI agents into their workflows.<p>It&#x27;s a shame that AI coding tools have become such a polarizing issue among developers. I understand the reasons, but I wish there had been a smoother path to this future. The early LLMs like GPT-3 could <i>sort of</i> code enough for it to look like there was a lot of potential, and so there was a lot of hype to drum up investment and a lot of promises made that weren&#x27;t really viable with the tech as it was then. This created a large number of AI skeptics (of whom I was one, for a while) and a whole bunch of cynicism and suspicion and resistance amongst a large swathe of developers. But could it have been different? It seems a lot of transformative new tech is fated to evolve this way. Early aircraft were extremely unreliable and dangerous and not yet worthy of the promises being made about them, but eventually with enough evolution and lessons learned we got the  Douglas DC-3, and then in the end the 747.<p>If you&#x27;re a developer who still doesn&#x27;t believe that AI tools are useful, I would recommend you go read Mitchell&#x27;s post, and give Claude Code a trial run like he did.  Try and forget about the annoying hype and the vibe-coding influencers and the noise and just treat it like any new tool you might put through its paces. There are many important conversations about AI to be had, it has plenty of downsides, but a proper discussion begins with close engagement with the tools.",
+      "time": 1770329969,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "mjr00",
+      "id": 46904972,
+      "kids": [
+        46905076,
+        46908003,
+        46905905,
+        46905129,
+        46906643,
+        46909744,
+        46905912,
+        46906564,
+        46905965
+      ],
+      "parent": 46903558,
+      "text": "&gt; Break down sessions into separate clear, actionable tasks. Don&#x27;t try to &quot;draw the owl&quot; in one mega session.<p>This is the key one I think. At one extreme you can tell an agent &quot;write a for loop that iterates over the variable `numbers` and computes the sum&quot; and they&#x27;ll do this successfully, but the scope is so small there&#x27;s not much point in using an LLM. On the other extreme you can tell an agent &quot;make me an app that&#x27;s Facebook for dogs&quot; and it&#x27;ll make so many assumptions about the architecture, code and product that there&#x27;s no chance it produces anything useful beyond a cool prototype to show mom and dad.<p>A lot of successful LLM adoption for code is finding this sweet spot. Overly specific instructions don&#x27;t make you feel productive, and overly broad instructions you end up redoing too much of the work.",
+      "time": 1770324172,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "EastLondonCoder",
+      "id": 46905344,
+      "kids": [
+        46907190,
+        46907574,
+        46911289,
+        46909771,
+        46905507
+      ],
+      "parent": 46903558,
+      "text": "This matches my experience, especially &quot;don\u2019t draw the owl&quot; and the harness-engineering idea.<p>The failure mode I kept hitting wasn\u2019t just &quot;it makes mistakes&quot;, it was drift: it can stay locally plausible while slowly walking away from the real constraints of the repo. The output still sounds confident, so you don\u2019t notice until you run into reality (tests, runtime behaviour, perf, ops, UX).<p>What ended up working for me was treating chat as where I shape the plan (tradeoffs, invariants, failure modes) and treating the agent as something that does narrow, reviewable diffs against that plan. The human job stays very boring: run it, verify it, and decide what\u2019s actually acceptable. That separation is what made it click for me.<p>Once I got that loop stable, it stopped being a toy and started being a lever. I\u2019ve shipped real features this way across a few projects (a git like tool for heavy media projects, a ticketing&#x2F;payment flow with real users, a local-first genealogy tool, and a small CMS&#x2F;publishing pipeline). The common thread is the same: small diffs, fast verification, and continuously tightening the harness so the agent can\u2019t drift unnoticed.",
+      "time": 1770325669,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "hollowturtle",
+      "id": 46911346,
+      "kids": [
+        46911928,
+        46911606
+      ],
+      "parent": 46903558,
+      "text": "I don&#x27;t understand how Agents make you feel productive. Single&#x2F;Multiple agents reading specs, specs often produced with agents itself and iterated over time with human in the loop, a lot of reviewing of giant gibberish specs. Never had a clear spec in my life. Then all the dancing for this apperantly new paradigm, of not reviewing code but verifying behaviour, and so many other things. All of this to me is a total UNproductive mess. I use Cursor autocomplete from day one till to this day, I was super productive before LLMs, I&#x27;m more productive now, I&#x27;m capable, I have experience, product is hard to maintain but customers are happy, management is happy. So I can&#x27;t really relate anymore to many of the programmers out there, that&#x27;s sad, I can count on my hands devs that I can talk to that have hard skills and know-how to share instead of astroturfing about AI Agents",
+      "time": 1770375247,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "anupamchugh",
+      "id": 46910621,
+      "kids": [
+        46910858
+      ],
+      "parent": 46903558,
+      "text": "I&#x27;ve been thinking about this as three maturity levels.<p>Level 1 is what Mitchell describes \u2014 AGENTS.md, a static harness. Prevents known mistakes. But it rots. Nobody updates the checklist when the environment changes.<p>Level 2 is treating each agent failure as an inoculation. Agent duplicates a util function? Don&#x27;t just fix it \u2014 write a rule file: &quot;grep existing helpers before writing new ones.&quot; Agent tries to build a feature while the build is broken? Rule: &quot;fix blockers first.&quot; After a few months you have 30+ of these. Each one is an antibody against a specific failure class. The harness becomes an immune system that compounds.<p>Level 3 is what I haven&#x27;t seen discussed much: specs need to push, not just be read. If a requirement in auth-spec.md changes, every linked in-progress task should get flagged automatically. The spec shouldn&#x27;t wait to be consulted.<p>The real bottleneck isn&#x27;t agent capability \u2014 it&#x27;s supervision cost. Every type of drift (requirements change, environments diverge, docs rot) inflates the cost of checking the agent&#x27;s work.<p>Crush that cost and adoption follows.",
+      "time": 1770368749,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "sublimefire",
+      "id": 46910652,
+      "parent": 46903558,
+      "text": "Very much the same experience. But it does not talk much about the project setup and the influence of it on the session success. In the narrow scoped projects it works really well, especially when tests are easy to execute. I found that this approach melts down when facing enterprise software with large repositories and unconventional layouts. Then you need to do a bunch of context management upfront, and verbose instructions for evaluations. But we know what it needs is a refactor thats all.<p>And the post touches on a next type of a problem, how to plan far ahead of time to utilise agents when you are away. It is a difficult problem but IMO we\u2019re going in a direction of having some sort of shared \u201ctemplated plans\u201d&#x2F;workflows and budgeted&#x2F;throttled task execution to achieve that. It is like you want to give a little world to explore so that it does not stop early, like a little game to play, then you come back in the morning and check how far it went.",
+      "time": 1770368979,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "senko",
+      "id": 46905872,
+      "parent": 46903558,
+      "text": "For those wondering how that looks in practice, here&#x27;s one of OP&#x27;s past blog posts describing a coding session to implement a non-trivial feature: <a href=\"https:&#x2F;&#x2F;mitchellh.com&#x2F;writing&#x2F;non-trivial-vibing\" rel=\"nofollow\">https:&#x2F;&#x2F;mitchellh.com&#x2F;writing&#x2F;non-trivial-vibing</a> (covered on HN here: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=45549434\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=45549434</a>)",
+      "time": 1770328218,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "sho_hn",
+      "id": 46904966,
+      "kids": [
+        46905071
+      ],
+      "parent": 46903558,
+      "text": "Much more pragmatic and less performative than other posts hitting frontpage. Good article.",
+      "time": 1770324146,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "scarrilho",
+      "id": 46907474,
+      "parent": 46903558,
+      "text": "With so much noise in the AI world and constant model updates (just today GPT-5.3-Codex and Claude Opus 4.6 were announced), this was a really refreshing read. It\u2019s easy to relate to his phased approach to finding real value in tooling and not just hype. There are solid insights and practical tips here. I\u2019m increasingly convinced that the best way not to get overwhelmed is to set clear expectations for what you want to achieve with AI and tailor how you use it to work for you, rather than trying to chase every new headline. Very refreshing.",
+      "time": 1770337914,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "keyle",
+      "id": 46906155,
+      "parent": 46903558,
+      "text": "It&#x27;s amusing how everyone seems to be going through the same journey.<p>I do run multiple models at once now. On different parts of the code base.<p>I focus solely on the less boring tasks for myself and outsource all of the slam dunk and then review. Often use another model to validate the previous models work while doing so myself.<p>I do git reset still quite often but I find more ways to not get to that point by knowing the tools better and better.<p>Autocompleting our brains! What a crazy time.",
+      "time": 1770329770,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "simgt",
+      "id": 46910273,
+      "parent": 46903558,
+      "text": "Very nice. As a consequence of this new way of working I&#x27;m using `git worktree` and diffview all the time.<p>For more on the &quot;harness engineering&quot;, see what Armin Ronacher and Mario Zechner are doing with pi: <a href=\"https:&#x2F;&#x2F;lucumr.pocoo.org&#x2F;2026&#x2F;1&#x2F;31&#x2F;pi&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;lucumr.pocoo.org&#x2F;2026&#x2F;1&#x2F;31&#x2F;pi&#x2F;</a> <a href=\"https:&#x2F;&#x2F;mariozechner.at&#x2F;posts&#x2F;2025-11-30-pi-coding-agent&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;mariozechner.at&#x2F;posts&#x2F;2025-11-30-pi-coding-agent&#x2F;</a><p>&gt; I really don&#x27;t care one way or the other if AI is here to stay3, I&#x27;m a software craftsman that just wants to build stuff for the love of the game.<p>I suspect having three comma on one&#x27;s bank account helps being very relaxed about the outcome ;)",
+      "time": 1770364959,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "underdeserver",
+      "id": 46905784,
+      "kids": [
+        46911405,
+        46908314,
+        46905926
+      ],
+      "parent": 46903558,
+      "text": "&gt; At a bare minimum, the agent must have the ability to: read files, execute programs, and make HTTP requests.<p>That&#x27;s one very short step removed from Simon Willison&#x27;s lethal trifecta.",
+      "time": 1770327738,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "tpoacher",
+      "id": 46910348,
+      "parent": 46903558,
+      "text": "&gt; This blog post was fully written by hand, in my own words.<p>This reminded me of back when wysiwyg web editors started becoming a thing, and coders started adding those &quot;Created in notepad&quot; stickers to their webpages, to point out they were &#x27;real&#x27; web developers. Fun times.",
+      "time": 1770365681,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "rldjbpin",
+      "id": 46911224,
+      "parent": 46903558,
+      "text": "not quite as technically rich as i came to expect from previous posts from op, but very insightful regardless.<p>not ashamed to say that i am between steps 2 and 3 in my personal workflow.<p>&gt;Adopting a tool feels like work, and I do not want to put in the effort<p>all the different approaches floating online feel ephemeral to me. this, just like for different tools for the op, seem like a chore to adopt. i like the fomo mongering from the community does not help here, but in the end it is a matter of personal discovery to stick with what works for you.",
+      "time": 1770374033,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "awesan",
+      "id": 46910793,
+      "parent": 46903558,
+      "text": "I&#x27;m kind of on the same journey, a bit less far along. One thing I have observed is that I am constantly running out of tokens in claude. I guess this is not an issue for a wealthy person like Mitchell but it does significantly hamper my ability to experiment.",
+      "time": 1770370218,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "zubspace",
+      "id": 46906443,
+      "kids": [
+        46906732,
+        46908119,
+        46906500
+      ],
+      "parent": 46903558,
+      "text": "It&#x27;s so sad that we&#x27;re the ones who have to tell the agent how to improve by extending agent.md or whatever. I constantly have to tell it what I don&#x27;t like or what can be improved or need to request clarifications or alternative solutions.<p>This is what&#x27;s so annoying about it. It&#x27;s like a child that does the same errors again and again.<p>But couldn&#x27;t it adjust itself with the goal of reducing the error bit by bit? Wouldn&#x27;t this lead to the ultimate agent who can read your mind? That would be awesome.",
+      "time": 1770331287,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "davidw",
+      "id": 46905849,
+      "kids": [
+        46905857
+      ],
+      "parent": 46903558,
+      "text": "This seems like a pretty reasonable approach that charts a course between skepticism and &quot;it&#x27;s a miracle&quot;.<p>I wonder how much all this costs on a monthly basis?",
+      "time": 1770328098,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "noosphr",
+      "id": 46908694,
+      "kids": [
+        46908813,
+        46909000
+      ],
+      "parent": 46903558,
+      "text": "I&#x27;ve been building systems like what the OP is using since gpt3 came out.<p>This is the honeymoon phase. You&#x27;re learning the ins and outs of the specific model you&#x27;re using and becoming more productive. It&#x27;s magical. Nothing can stop you. Then you might not be improving as fast as you did at the start, but things are getting better every day. Or maybe every week. But it&#x27;s heaps better than doing it by hand because you have so much mental capacity left.<p>Then a new release comes up. An arbitrary fraction of your hard earned intuition is not only useless but actively harmful to getting good results with the new models. Worse you will never know which part it is without unlearning everything you learned and starting over again.<p>I&#x27;ve had to learn the quirks of three generations of frontier families now. It&#x27;s not worth the hassle. I&#x27;ve gone back to managing the context window in Emacs because I can&#x27;t be bothered to learn how to deal with another model family that will be thrown out in six months. Copy and paste is the universal interface and being able to do surgery on the chat history is still better than whatever tooling is out there.<p>Unironically learning vim or Emacs and the standard Unix code tools is still the best thing you can do to level up your llm usage.",
+      "time": 1770348303,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "tigerlily",
+      "id": 46910437,
+      "parent": 46903558,
+      "text": "OT but, the style. The journey. What is it? What does this remind me of?<p>Flowers for Algernon.<p>Or at least the first half. I don&#x27;t wanna see what it looks like when AI capabilities start going in reverse.<p>But I want to know.",
+      "time": 1770366717,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "energy123",
+      "id": 46908487,
+      "parent": 46903558,
+      "text": "&gt; Immediately cease trying to perform meaningful work via a chatbot.<p>That depends on your budget. To work within my pro plan&#x27;s codex limits, I attach the codebase as a single file to various chat windows (GPT 5.2 Thinking - Heavy) and ask it to find bugs&#x2F;plan a feature&#x2F;etc. Then I copy the dense tasklist from chat to codex for implementation. This reduces the tokens that codex burns.<p>Also don&#x27;t sleep on GPT 5.2 Pro. That model is a beast for planning.",
+      "time": 1770346685,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "cal_dent",
+      "id": 46906298,
+      "parent": 46903558,
+      "text": "Just wanted to say that was a nice and very grounded write up; and as a result very informative. Thank you. More stuff like this is a breath of fresh air in a landscape that has veered into hyperbole territory both in the for and against ai sides",
+      "time": 1770330459,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "raphinou",
+      "id": 46905043,
+      "parent": 46903558,
+      "text": "I recently also reflected on the evolution of my use of ai in programming. Same evolution, other path. If anyone is interested: <a href=\"https:&#x2F;&#x2F;www.asfaload.com&#x2F;blog&#x2F;ai_use&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.asfaload.com&#x2F;blog&#x2F;ai_use&#x2F;</a>",
+      "time": 1770324417,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "tppts",
+      "id": 46909386,
+      "kids": [
+        46911409,
+        46909791,
+        46909402
+      ],
+      "parent": 46903558,
+      "text": "So does everyone just run with giving full permissions on Claude code these days? It seems like I\u2019m constantly coming back to CC to validate that it\u2019s not running some bash that\u2019s going to nuke my system. I would love to be able to fully step away but it feels like I can\u2019t.",
+      "time": 1770354841,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "kaffekaka",
+      "id": 46909577,
+      "parent": 46903558,
+      "text": "&gt; Context switching is very expensive. In order to remain efficient, I found that it was my job as a human to be in control of when I interrupt the agent, not the other way around. Don&#x27;t let the agent notify you.<p>This I have found to be important too.",
+      "time": 1770357028,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "seemaze",
+      "id": 46908280,
+      "parent": 46903558,
+      "text": "What a lovely read. Thank you for sharing your experience.<p>The human-agent relationship described in the article made me wonder: are natural, or experienced, managers having more success with AI as subordinates than people without managerial skill? Are AI agents enormously different than arbitrary contractors half a world away where the only communication is daily text exchanges?",
+      "time": 1770345037,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "henry_bone",
+      "id": 46907386,
+      "kids": [
+        46908005,
+        46909303
+      ],
+      "parent": 46903558,
+      "text": "LLMs are not for me.  My position is that the advantage we humans have over the\nrest of the natural world, is our minds.  Our ability to think, create and express ideas\nis what separates us from the rest of the animal kingdom.  Once we give that over to\n&quot;thinking&quot; machines, we weaken ourselves, both individually and as a species.<p>That said, I&#x27;ve given it a go.  I used zed, which I think is a pretty great tool. I \nbought a pro subscription and used the built in agent with Claude Sonnet 4.x and Opus.\nI&#x27;m a Rails developer in my day job, and, like MitchellH and many others, found out\nfairly quickly that tasks for the LLM need to be quite specific and discrete. The agent\nis great a renames and minor refactors, but my preferred use of the agent was to get it\nto write RSpec tests once I&#x27;d written something like a controller or service object.<p>And generally, the LLM agent does a pretty great job of this.<p>But here&#x27;s the rub: I found that I was losing the ability to write rspec.<p>I went to do it manually and found myself trying to remember API calls and approaches\nrequired to write some specs.  The feeling of skill leaving me was quite sobering and\nmarked my abandonment of LLMs and Zed, and my return to neovim, agent-free.<p>The thing is, this is a common experience generally. If you don&#x27;t use it, you lose it.\nIt applies to all things: fitness, language (natural or otherwise), skills of all kinds.\nWhy should it not apply to thinking itself.<p>Now you may write me and my experience off as that of a lesser mind, and that you won&#x27;t\nhave such a problem.  You&#x27;ve been doing it so long that it&#x27;s &quot;hard-wired in&quot; by now.\nPerhaps.<p>It&#x27;s in our nature to take the path of least resistance, to seek ease and convenience at\nevery turn.  We&#x27;ve certainly given away our privacy and anonymity so that we can pay for\nthings with our phones and send email for &quot;free&quot;.<p>LLMs are the ultimate convenience.  A peer or slave mind that we can use to do our \nthinking and our work for us. Some believe that the LLM represents a local maxima, that\nthe approach can&#x27;t get much better.  I dunno, but as AI improves, we will hand over more\nand more thinking and work to it. To do otherwise would be to go against our very nature\nand every other choice we&#x27;ve made so far.<p>But it&#x27;s not for me. I&#x27;m no MitchellH, and I&#x27;m probably better off performing the\nmundane activities of my work, as well as the creative ones, so as to preserve my\nhard-won knowledge and skills.<p>YMMV<p>I&#x27;ll leave off with the quote that resonates the most with me as I contemplate AI:-<p>&quot;I say your civilization, because as soon as we started thinking for you,\n it really became our civilization, which is, of course, what this is all about.&quot;\n   -- Agent Smith &quot;The Matrix&quot;",
+      "time": 1770337229,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "butterNaN",
+      "id": 46912459,
+      "parent": 46903558,
+      "text": "&gt; having an agent running at all times<p>This gave me a physical flinch. Perhaps this is unfounded, but all this makes me think of is this becoming the norm, millions of people doing this, and us cooking our planet out much faster than predicted.",
+      "time": 1770383878,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "butler14",
+      "id": 46905275,
+      "parent": 46903558,
+      "text": "I&#x27;d be interested to know what agents you&#x27;re using. You mentioned Claude and GPT in passing, but don&#x27;t actually talk about which you&#x27;re using or for which tasks.",
+      "time": 1770325394,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "mwigdahl",
+      "id": 46904820,
+      "parent": 46903558,
+      "text": "Good article!  I especially liked the approach to replicate manual commits with the agent.  I did not do that when learning but I suspect I&#x27;d have been much better off if I had.",
+      "time": 1770323610,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "josh-sematic",
+      "id": 46907333,
+      "parent": 46903558,
+      "text": "This is yet one more indication to me that the winds have shifted with regards to the utility of the \u201cagent\u201d paradigm of coding with an LLM. With all the talk around Opus 4.5 I decided to finally make the jump there myself and haven\u2019t yet been disappointed (though admittedly I\u2019m starting it on some pretty straightforward stuff).",
+      "time": 1770336837,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "jvillasante",
+      "id": 46911503,
+      "parent": 46903558,
+      "text": "This are all valid points and a hype-free pragmatic take, I&#x27;ve been wondering about the same things even when I&#x27;m still in the skeptics side. I think there are other things that should be added since Mitchell&#x27;s reality won&#x27;t apply to everyone:<p>- What about non opensource work that&#x27;s not on Github?<p>- Costs! I would think &quot;an agent always running&quot; would add up quickly<p>- In open source work, how does it <i>amplify</i> others. Are you seeing AI Slop as PRs? Can you tell the difference?",
+      "time": 1770376504,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "fix4fun",
+      "id": 46905118,
+      "parent": 46903558,
+      "text": "Thanks for sharing your experiences :)<p>You mentioned &quot;harness engineering&quot;. How do you approach building &quot;actual programmed tools&quot; (like screenshot scripts) specifically for an LLM&#x27;s consumption rather than a human&#x27;s? Are there specific output formats or constraints you\u2019ve found most effective?",
+      "time": 1770324740,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "bthornbury",
+      "id": 46907978,
+      "parent": 46903558,
+      "text": "AI is getting to the game-changing point. We need more hand-written reflections on how individuals are managing to get productivity gains for real (not a vibe coded app) software engineering.",
+      "time": 1770342472,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "e40",
+      "id": 46907696,
+      "kids": [
+        46911097
+      ],
+      "parent": 46903558,
+      "text": "For those of working on large proprietary, in fringe languages as well, what can we do?  Upload all the source code to the cloud model?  I am really wary of giving it a million lines of code it\u2019s never seen.",
+      "time": 1770339855,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "taikahessu",
+      "id": 46906513,
+      "parent": 46903558,
+      "text": "Do you have any ideas on how to harness AI to only change specific parts of a system or workpiece? Like &quot;I consider this part 80&#x2F;100 done and only make &#x27;meaningful&#x27; or &#x27;new contributions&#x27; here&quot; ...?",
+      "time": 1770331630,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "rhubarbtree",
+      "id": 46910155,
+      "kids": [
+        46910553,
+        46910489,
+        46910169
+      ],
+      "parent": 46903558,
+      "text": "If the author is here, please could you also confirm you\u2019ve never been paid by any AI company, marketing representative, community programme, in any shape or form?",
+      "time": 1770363645,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "rthak",
+      "id": 46908082,
+      "parent": 46903558,
+      "text": "Now that the Nasdaq crashes, people switch from the stick to the carrot:<p>&quot;Please let us sit down and have a reasonable conversation! I was a skeptic, too, but if all skeptics did what I did, they would come to Jesus as well! Oh, and pay the monthly Anthropic tithe!&quot;",
+      "time": 1770343424,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "dudewhocodes",
+      "id": 46906488,
+      "parent": 46903558,
+      "text": "Refreshing to read a balanced opinion, from a person who has significant experience and grounding in the real world.",
+      "time": 1770331498,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "simianparrot",
+      "id": 46911526,
+      "parent": 46903558,
+      "text": "&gt; If an agent isn&#x27;t running, I ask myself &quot;is there something an agent could be doing for me right now?&quot;<p>Solution-looking-for-a-problem mentality is a curse.",
+      "time": 1770376692,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "0xbadcafebee",
+      "id": 46906014,
+      "parent": 46903558,
+      "text": "&gt; I&#x27;m not [yet?] running multiple agents, and currently don&#x27;t really want to<p>This is the main reason to use AI agents, though: multitasking. If I&#x27;m working on some Terraform changes and I fire off an agent loop, I know it&#x27;s going to take a while for it to produce something working. In the meantime I&#x27;m waiting for it to come back and pretend it&#x27;s finished (really I&#x27;ll have to fix it), so I start another agent on something else. I flip back and forth between the finished runs as they notify me. At the end of the day I have 5 things finished rather than two.<p>The &quot;agent&quot; doesn&#x27;t have to be anything special either. Anything you can run in a VM or container (vscode w&#x2F;copilot chat, any cli tool, etc) so you can enable YOLO mode.",
+      "time": 1770328952,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "apercu",
+      "id": 46905945,
+      "parent": 46903558,
+      "text": "I find it interesting that this thread is full of pragmatic posts that seem to honestly reflect the real limits of current Gen-Ai.<p>Versus other threads (here on HN, and especially on places like LinkedIn) where it&#x27;s &quot;I set up a pipeline and some agents and now I type two sentences and amazing technology comes out in 5 minutes that would have taken 3 devs 6 months to do&quot;.",
+      "time": 1770328551,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "jonathanstrange",
+      "id": 46905853,
+      "kids": [
+        46905892,
+        46906213
+      ],
+      "parent": 46903558,
+      "text": "There are so many stories about how people use agentic AI but they rarely post how much they spend. Before I can even consider it, I need to know how it will cost me per month. I&#x27;m currently using one pro subscription and it&#x27;s already quite expensive for me. What are people doing, burning hundreds of dollars per month? Do they also evaluate how much value they get out of it?",
+      "time": 1770328128,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "jeffrallen",
+      "id": 46905846,
+      "parent": 46903558,
+      "text": "&gt; babysitting my kind of stupid and yet mysteriously productive robot friend<p>LOL, been there, done that. It is much less frustrating and demoralizing than babysitting your kind of stupid colleague though. (Thankfully, I don&#x27;t have any of those anymore. But at previous big companies? Oh man, if only their commits were ONLY as bad as a bad AI commit.)",
+      "time": 1770328085,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "xyst",
+      "id": 46905486,
+      "kids": [
+        46905721
+      ],
+      "parent": 46903558,
+      "text": "[flagged]",
+      "time": 1770326315,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "vonneumannstan",
+      "id": 46904796,
+      "kids": [
+        46905720,
+        46905951,
+        46905341,
+        46908052,
+        46909755,
+        46904875,
+        46905437,
+        46910157
+      ],
+      "parent": 46903558,
+      "text": "For the AI skeptics reading this, there is an overwhelming probability that Mitchell is a better developer than you. If he gets value out of these tools you should think about why you can&#x27;t.",
+      "time": 1770323510,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "therein",
+      "id": 46904752,
+      "kids": [
+        46905174,
+        46905090,
+        46904922
+      ],
+      "parent": 46903558,
+      "text": "[flagged]",
+      "time": 1770323290,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "polyrand",
+      "id": 46905979,
+      "parent": 46903558,
+      "text": "&gt; a period of inefficiency<p>I think this is something people ignore, and is significant. The only way to get good at coding with LLMs is actually trying to do it. Even if it&#x27;s inefficient or slower at first. It&#x27;s just another skill to develop [0].<p>And it&#x27;s not really about using all the plugins and features available. In fact, many plugins and features are counter-productive. Just learn how to prompt and steer the LLM better.<p>[0]: <a href=\"https:&#x2F;&#x2F;ricardoanderegg.com&#x2F;posts&#x2F;getting-better-coding-llms-agents&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;ricardoanderegg.com&#x2F;posts&#x2F;getting-better-coding-llms...</a>",
+      "time": 1770328751,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "keyle",
+      "id": 46907458,
+      "kids": [
+        46908906,
+        46908202,
+        46911597,
+        46910207,
+        46908313,
+        46910801,
+        46909251,
+        46910572,
+        46911812,
+        46910239
+      ],
+      "parent": 46906201,
+      "text": "Architects went from drawing everything on paper, to using CAD products over a generation. That&#x27;s a lot of years! They&#x27;re still called architects.<p>Our tooling just had a refresh in less than 3 years and it leaves heads spinning. People are confused, fighting for or against it. Torn even between 2025 to 2026. I know I was.<p>People need a way to describe it from &#x27;agentic coding&#x27; to &#x27;vibe coding&#x27; to &#x27;modern AI assisted stack&#x27;.<p>We don&#x27;t call architects &#x27;vibe architects&#x27; even though they copy-paste 4&#x2F;5th of your next house and use a library of things in their work!<p>We don&#x27;t call builders &#x27;vibe builders&#x27; for using earth-moving machines instead of a shovel...<p>When was the last time you reviewed the machine code produced by a compiler? ...<p>The real issue this industry is facing, is the phenomenal speed of change. But what are we really doing? That&#x27;s right, programming.",
+      "time": 1770337827,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "datsci_est_2015",
+      "id": 46908023,
+      "kids": [
+        46908663,
+        46908304,
+        46909342,
+        46908344,
+        46908148,
+        46908384
+      ],
+      "parent": 46906201,
+      "text": "I skimmed over it, and didn\u2019t find any discussion of:<p><pre><code>  - Pull requests\n  - Merge requests\n  - Code review\n</code></pre>\nI feel like I\u2019m taking crazy pills. Are SWE supposed to move away from code review, one of the core activities for the profession? Code review is as fundamental for SWE as double entry is for accounting.<p>Yes, we know that functional code can get generated at incredible speeds. Yes, we know that apps and what not can be bootstrapped from nothing by \u201cagentic coding\u201d.<p>We need to read this code, right? How can I deliver code to my company without security and reliability guarantees that, at their core, come from me knowing what I\u2019m delivering line-by-line?",
+      "time": 1770342883,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "tmtvl",
+      "id": 46911071,
+      "kids": [
+        46911845
+      ],
+      "parent": 46906201,
+      "text": "I will give Claude Code a trial run if I can run it locally without an internet connection. AI companies have procured so much training data through illegal means you have to be insane to trust them in even the smallest amount.",
+      "time": 1770372760,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "zamadatix",
+      "id": 46909134,
+      "parent": 46906201,
+      "text": "Should AI tools use memory safe tabs or spaces for indentation? :)<p>It is a shame it&#x27;s become such a polarized topic. Things which actually work fine get immediately bashed by large crowds at the same time things that are really not there get voted to the moon by extremely eager folks. A few years from now I expect I&#x27;ll be thinking &quot;man, there was some really good stuff I missed out on because the discussions about it were so polarized at the time. I&#x27;m glad that has cleared up significantly!&quot;",
+      "time": 1770352220,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "beoberha",
+      "id": 46906573,
+      "kids": [
+        46907277
+      ],
+      "parent": 46906201,
+      "text": "Your sentiment resonates with me a lot. I wonder what we\u2019ll consider the inflection point 10 years from now. It seemed like the zeitgeist was screaming about scaling limits and running out of training data, then we got Claude code, sonnet 4.5, then Opus 4.5 and no ones looked back since.",
+      "time": 1770332058,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "majormajor",
+      "id": 46907801,
+      "parent": 46906201,
+      "text": "GPT-4 showed the potential but the automated workflows (context management, loops, test-running) and pure execution speed to handle all that &quot;reasoning&quot;&#x2F;workflows (remember watching characters pop in slowly in GPT-4 streaming API response calls) are gamechangers.<p>The workflow automation and better (and model-directed) context management are all obvious in retrospect but a lot of people (like myself) were instead focused on IDE integration and such vs `grep` and the like. Maybe multi-agent with task boards is the next thing, but it feels like that might also start to outrun the ability to sensibly design and test new features for non-greenfield&#x2F;non-port projects. Who knows yet.<p>I think it&#x27;s still very valuable for someone to dig in to the underlying models periodically (insomuch as the APIs even expose the same level of raw stuff anymore) to get a feeling for what&#x27;s reliable to one-shot vs what&#x27;s easily correctable by a &quot;ran the tests, saw it was wrong, fixed it&quot; loop. If you don&#x27;t have a good sense of that, it&#x27;s easy to get overambitious and end up with something you don&#x27;t like if you&#x27;re the sort of person who cares at all about what the code looks like.",
+      "time": 1770340835,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "svilen_dobrev",
+      "id": 46910803,
+      "kids": [
+        46910820
+      ],
+      "parent": 46906201,
+      "text": "let me ask a stupid&#x2F;still-ignorant question - about repeatability.<p>If one asks this generator&#x2F;assistant <i>same</i> request&#x2F;thing, within same initial contexts, 10 times, would it generate <i>same</i> result ? in different sessions and all that.<p>because.. if not, then it&#x27;s for once-off things only..",
+      "time": 1770370379,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "ianm218",
+      "id": 46909469,
+      "kids": [
+        46909620
+      ],
+      "parent": 46906201,
+      "text": "Isn\u2019t there something off about calling predictions about the future, that aren\u2019t possible with current tech, hype? Like people predicted AI agents would be this huge change, they were called hype since earlier models were so unreliable, and now they are mostly right as ai agents work like a mid level engineer. And clearly super human in some areas.",
+      "time": 1770355818,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "Lich",
+      "id": 46907094,
+      "kids": [
+        46907149,
+        46907819
+      ],
+      "parent": 46906201,
+      "text": "Is there any reason to use Claude Code specifically over Codex or Gemini? I\u2019ve found the both Codex and Gemini similar in results,  but I never tried Claude because of I keep hearing usage runs out so fast on pro plans and there\u2019s no free trial for the CLI.",
+      "time": 1770335147,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "epolanski",
+      "id": 46911762,
+      "parent": 46906201,
+      "text": "&gt; It&#x27;s a shame that AI coding tools have become such a polarizing issue among developers.<p>Frankly I&#x27;m so tired of the usual &quot;I don&#x27;t find myself more productive&quot;, &quot;It writes soup&quot;. Especially when some of the best software developers (and engineers) find many utility in those tools, there should be some doubt growing in that crowd.<p>I have come to the conclusion that software <i>developers</i>, those only focusing on the craft of writing code are the naysayers.<p>Software <i>engineers</i> immediately recognize the many automation&#x2F;exploration&#x2F;etc boosts, recognize the tools limits and work on improving them.<p>Hell, <i>AI is an insane boost to productivity, even if you don&#x27;t have it write a single line of code ever</i>.<p>But people that focus on the craft (the kind of crowd that doesn&#x27;t even process the concept of throwaway code or budgets or money) will keep laying in their &quot;I don&#x27;t see the benefits because X&quot; forever, nonsensically confusing any tool use with vibe coding.<p>I&#x27;m also convinced that since this crowd never had any notion of what <i>engineering</i> is (there is very little of it in our industry sadly, technology and code is the focus and rarely the business, budget and problems to solve) and confused it with architectural, technological or best practices they are genuinely insecure about their jobs because once their very valued craft and skills are diminished they pay the price of never having invested in understanding the business, the domain, processes or soft skills.",
+      "time": 1770378802,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "arcxi",
+      "id": 46906539,
+      "kids": [
+        46908625
+      ],
+      "parent": 46906201,
+      "text": "but annoying hype is exactly the issue with AI in my eyes. I get it&#x27;s a useful tool in moderation and all, but I also experience that management values speed and quantity of delivery above all else, and hype-driven as they are I fear they will run this industry to the ground and we as users and customers will have to deal with the world where software is permanently broken as a giant pile of unmaintainable vibe code and no experienced junior developers to boot.",
+      "time": 1770331793,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "chrysoprace",
+      "id": 46908141,
+      "kids": [
+        46909604,
+        46911855,
+        46909024
+      ],
+      "parent": 46906201,
+      "text": "I think for a lot of people the turn off is the constant churn and the hype cycle. For a lot of people, they just want to get things done and not have to constantly keep on top of what&#x27;s new or SOTA. Are we still using MCPs or are we using Skills now? Not long ago you had to know MCP or you&#x27;d be left behind and you definitely need to know MCP UI or you&#x27;ll be left behind. I think. It just becomes really tiring, especially with all the FUD.<p>I&#x27;m embracing LLMs but I think I&#x27;ve had to just pick a happy medium and stick with Claude Code with MCPs until somebody figures out a legitimate way to use the Claude subscription with open source tools like OpenCode, then I&#x27;ll move over to that. Or if a company provides a model that&#x27;s as good value that can be used with OpenCode.",
+      "time": 1770344071,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "sho_hn",
+      "id": 46905076,
+      "kids": [
+        46908579,
+        46905785,
+        46906840
+      ],
+      "parent": 46904972,
+      "text": "This is actually an aspect of using AI tools I really enjoy: Forming an educated intuition about what the tool is good at, and tastefully framing and scoping the tasks I give it to get better results.<p>It cognitively feels very similar to other classic programming activities, like modularization at any level from architecture to code units&#x2F;functions, thoughtfully choosing how to lay out and chunk things. It&#x27;s always been one of the things that make programming pleasurable for me, and some of that feeling returns when slicing up tasks for agents.",
+      "time": 1770324547,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "mapontosevenths",
+      "id": 46908003,
+      "kids": [
+        46910943
+      ],
+      "parent": 46904972,
+      "text": "&gt; Break down sessions into separate clear, actionable tasks.<p>What this misses, of course, is that you can just have the agent do this too. Agent&#x27;s are great at making project plans, especially if you give them a template to follow.",
+      "time": 1770342686,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "iamacyborg",
+      "id": 46905905,
+      "parent": 46904972,
+      "text": "&gt; On the other extreme you can tell an agent &quot;make me an app that&#x27;s Facebook for dogs&quot; and it&#x27;ll make so many assumptions about the architecture, code and product that there&#x27;s no chance it produces anything useful beyond a cool prototype to show mom and dad.<p>Amusingly, this was my experience in giving Lovable a shot. The onboarding process was literally just setting me up for failure by asking me to describe the detailed app I was attempting to build.<p>Taking it piece by piece in Claude Code has been significantly more successful.",
+      "time": 1770328337,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "jedbrooke",
+      "id": 46905129,
+      "parent": 46904972,
+      "text": "so many times I catch myself asking a coding agent e.g \u201cplease print the output\u201d and it will update the file with \u201cprint (output)\u201d.<p>Maybe there\u2019s something about not having to context switch between natural language and code just makes it _feel_ easier sometimes",
+      "time": 1770324776,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "andai",
+      "id": 46909744,
+      "kids": [
+        46910448
+      ],
+      "parent": 46904972,
+      "text": "&gt; the scope is so small there&#x27;s not much point in using an LLM<p>Actually that&#x27;s how I did most of my work last year. I was annoyed by existing tools so I made one that can be used interactively.<p>It has full context (I usually work on small codebases), and can make an arbitrary number of edits to an arbitrary number of files in a single LLM round trip.<p>For such &quot;mechanical&quot; changes, you can use the cheapest&#x2F;fastest model available. This allows you to work interactively and stay in flow.<p>(In contrast to my previous obsession with the biggest, slowest, most expensive models! You actually want the dumbest one that can do the job.)<p>I call it &quot;power coding&quot;, akin to power armor, or perhaps &quot;coding at the speed of thought&quot;. I found that staying actively involved in this way (letting LLM only handle the function level) helped keep my mental model synchronized, whereas if I let it work independently, I&#x27;d have to spend more time catching up on what it had done.<p>I do use both approaches though, just depends on the project, task or mood!",
+      "time": 1770359075,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "apercu",
+      "id": 46905912,
+      "parent": 46904972,
+      "text": "I actually enjoy writing specifications. So much so that I made it a large part of my consulting work for a huge part of my career. SO it makes sense that working with Gen-AI that way is enjoyable for me.<p>The more detailed I am in breaking down chunks, the easier it is for me to verify and the more likely I am going to get output that isn&#x27;t 30% wrong.",
+      "time": 1770328365,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "kcorbitt",
+      "id": 46906564,
+      "parent": 46904972,
+      "text": "And lately, the sweet spot has been moving upwards every 6-8 weeks with the model release cycle.",
+      "time": 1770331966,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "oulipo2",
+      "id": 46905965,
+      "parent": 46904972,
+      "text": "Exactly. The LLMs are quite good at &quot;code inpainting&quot;, eg &quot;give me the outline&#x2F;constraints&#x2F;rules and I&#x27;ll fill-in the blanks&quot;<p>But not so good at making (robust) new features out of the blue",
+      "time": 1770328690,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "ricardobeat",
+      "id": 46907190,
+      "kids": [
+        46908036
+      ],
+      "parent": 46905344,
+      "text": "No harm meant, but your writing is very reminiscent of an LLM. It is great actually, there is just something about it - &quot;it wasn&#x27;t.. it was&quot;, &quot;it stopped being.. and started&quot;. Claude and ChatGPT seem to love these juxtapositions. The triplets on every other sentence. I think you are a couple em-dashes away from being accused of being a bot.<p>These patterns seem to be picking up speed in the general population; makes the human race seem quite easily hackable.",
+      "time": 1770335864,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "protocolture",
+      "id": 46907574,
+      "parent": 46905344,
+      "text": "&gt;The failure mode I kept hitting wasn\u2019t just &quot;it makes mistakes&quot;, it was drift: it can stay locally plausible while slowly walking away from the real constraints of the repo. The output still sounds confident, so you don\u2019t notice until you run into reality (tests, runtime behaviour, perf, ops, UX).<p>Yeah I would get patterns where, initial prototypes were promising, then we developed something that was 90% close to design goals, and then as we try to push in the last 10%, drift would start breaking down, or even just forgetting, the 90%.<p>So I would start getting to 90% and basically starting a new project with that as the baseline to add to.",
+      "time": 1770338758,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "miyuru",
+      "id": 46911289,
+      "parent": 46905344,
+      "text": "This is what I experienced as well.<p>these are some ticks I use now.<p>1. Write a generic prompts about the project and software versions and keep it in the folder. (I think this getting pushed as SKIILS.md now)<p>2. In the prompt add instructions to add comments on changes, since our main job is to validate and fix any issues, it makes it easier.<p>3. Find the best model for the specific workflow. For example, these days I find that Gemini Pro is good for HTML UI stuff, while Claude Sonnet is good for python code. (This is why subagents are getting popluar)",
+      "time": 1770374751,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "apitman",
+      "id": 46909771,
+      "parent": 46905344,
+      "text": "Would love to hear more about your geneology app.",
+      "time": 1770359353,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "bdangubic",
+      "id": 46905507,
+      "kids": [
+        46905852
+      ],
+      "parent": 46905344,
+      "text": "This is the most common answer from people that are rocking and rolling with AI tools but I cannot help but wonder how is this different from how <i>we should have built software all along.</i> I know I have been (after 10+ years\u2026)",
+      "time": 1770326425,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "wiether",
+      "id": 46911928,
+      "kids": [
+        46912828
+      ],
+      "parent": 46911346,
+      "text": "&gt; Never had a clear spec in my life.<p>To me part of our job has always been about translating garbage&#x2F;missing specs in something actionnable.<p>Working with agents don&#x27;t change this and that&#x27;s why until PM&#x2F;business people are able to come up with actual specs, they&#x27;ll still need their translators.<p>Furthermore, it&#x27;s not because the global spec is garbage that you, as a dev, won&#x27;t come up with clear specs to solve technical issues related to the overall feature asked by stakeholders.<p>One funny thing I see though, is in the AI presentations done to non-technical people, the advice: &quot;be as thorough as possible when describing what you except the agent to solve!&quot;.\nAnd I&#x27;m like: &quot;yeah, that&#x27;s what devs have been asking for since forever...&quot;.",
+      "time": 1770380441,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "elAhmo",
+      "id": 46911606,
+      "kids": [
+        46911634
+      ],
+      "parent": 46911346,
+      "text": "&gt; Never had a clear spec in my life.<p>Just because you haven&#x27;t or you work in a particular way, doesn&#x27;t mean everyone does things the same way.<p>Likewise, on your last point, just because someone is using AI in their work, doesn&#x27;t mean they don&#x27;t have hard skills and know-how. Author of this article Mitchell is a great example of that - someone who proved to be able to produce great software and, when talking about individuals who made a dent in the industry, definitely had&#x2F;has an impactful career.",
+      "time": 1770377337,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "svilen_dobrev",
+      "id": 46910858,
+      "parent": 46910621,
+      "text": "&gt; level 2 - becomes an immune system<p>i&#x27;d bet that above some number there will be contradictions. Things that apply to different semantic contexts, but look same on syntax level (and maybe with various levels of &quot;syntax&quot; and &quot;semantic&quot;). And debugging those is going to be  nightmare - same as debugging requirements spec &#x2F; verification of that",
+      "time": 1770370943,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "alterom",
+      "id": 46905071,
+      "parent": 46904966,
+      "text": "Finally, a step-by-step guide for even the skeptics to try to see what spot the LLM tools have in their workflows, without hype or magic like <i>I vibe-coded an entire OS, and you can too!</i>.",
+      "time": 1770324509,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "glitchcrab",
+      "id": 46911405,
+      "parent": 46905784,
+      "text": "This is why I won&#x27;t run Claude without additional sandboxing. I&#x27;m currently using (and quite pleased with) <a href=\"https:&#x2F;&#x2F;github.com&#x2F;strongdm&#x2F;leash\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;strongdm&#x2F;leash</a>",
+      "time": 1770375711,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "smj-edison",
+      "id": 46908314,
+      "kids": [
+        46909308
+      ],
+      "parent": 46905784,
+      "text": "I will say one thing Claude does is it doesn&#x27;t run a command until you approve it, and you can choose between a one-time approval and always allowing a command&#x27;s pattern. I usually approve the simple commands like `zig build test`, since I&#x27;m not particularly worried about the test harness. I believe it also scopes file reading by default to the current directory.",
+      "time": 1770345323,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "recursive",
+      "id": 46905926,
+      "kids": [
+        46906766,
+        46910211
+      ],
+      "parent": 46905784,
+      "text": "I&#x27;m definitely not running that on my machine.",
+      "time": 1770328450,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "audience_mem",
+      "id": 46906732,
+      "parent": 46906443,
+      "text": "&gt; It&#x27;s so sad that we&#x27;re the ones who have to tell the agent how to improve by extending agent.md or whatever.<p>Your improvement is someone else&#x27;s code smell. There&#x27;s no <i>absolute</i> right or wrong way to write code, and that&#x27;s coming from someone who definitely thinks there&#x27;s a right way. But it&#x27;s <i>my</i> right way.<p>Anyway, I don&#x27;t know why you&#x27;d expect it to write code the way <i>you</i> like after it&#x27;s been trained on the whole of the Internet &amp; the the RLHF labelers&#x27; preferences and the reward model.<p>Putting some words in AGENTS.md hardly seems like the most annoying thing.<p>tip: Add a &#x2F;fix command that tells it to fix $1 and then update AGENTS.md with the text that&#x27;d stop it from making that mistake in the future. Use your nearest LLM to tweak that prompt. It&#x27;s a good timesaver.",
+      "time": 1770332990,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "pixl97",
+      "id": 46908119,
+      "parent": 46906443,
+      "text": "While this may be the end goal, I do think humanity needs to take the trip along with AI to this point.<p>A mind reading ultimate agent sounds more like a deity, and there are more than enough fables warning one not to create gods because things tend to go bad. Pumping out ASI too quickly will cause massive destabilization and horrific war. Not sure who against really either. Could be us humans against the ASI, could be the rich humans with ASI against us. Anyway about it, it would represent a massive change in the world order.",
+      "time": 1770343767,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "cactusplant7374",
+      "id": 46906500,
+      "parent": 46906443,
+      "text": "It is not a mind reader. I enjoy giving it feedback because it shows I am in charge of the engineering.<p>I also love using it for research for upcoming features. Research + pick a solution + implement. It happens so fast.",
+      "time": 1770331570,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "tptacek",
+      "id": 46905857,
+      "kids": [
+        46912025,
+        46909807
+      ],
+      "parent": 46905849,
+      "text": "As long as we&#x27;re on the same page that what he&#x27;s describing <i>is itself a miracle</i>.",
+      "time": 1770328146,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "tudelo",
+      "id": 46908813,
+      "kids": [
+        46911879,
+        46910030,
+        46909059
+      ],
+      "parent": 46908694,
+      "text": "First off, appreciate you sharing your perspective. I just have a few questions.<p>&gt; I&#x27;ve gone back to managing the context window in Emacs because I can&#x27;t be bothered to learn how to deal with another model family that will be thrown out in six months.<p>Can you expand more on what you mean by that? I&#x27;m a bit of a noob on llm enabled dev work. Do you mean that you will kick off new sessions and provide a context that you manage yourself instead of relying on a longer running session to keep relevant information?<p>&gt; Unironically learning vim or Emacs and the standard Unix code tools is still the best thing you can do to level up your llm usage.<p>I appreciate your insight but I&#x27;m failing to understand how exactly knowing these tools increases performance of llms. Is it because you can more precisely direct them via prompts?",
+      "time": 1770349272,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "sunshinekitty",
+      "id": 46909000,
+      "kids": [
+        46909075
+      ],
+      "parent": 46908694,
+      "text": "&gt; I&#x27;ve been building systems like what the OP is using since pgt3 came out.<p>OP is also a founder of Hashicorp, so.. lol.<p>&gt; This is the honeymoon phase.<p>No offense but you come across as if you didn\u2019t read the article.",
+      "time": 1770350885,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "glitchcrab",
+      "id": 46911409,
+      "parent": 46909386,
+      "text": "I sandbox everything inside <a href=\"https:&#x2F;&#x2F;github.com&#x2F;strongdm&#x2F;leash\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;strongdm&#x2F;leash</a><p>That way the blast radius is vastly reduced.",
+      "time": 1770375757,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "apitman",
+      "id": 46909791,
+      "parent": 46909386,
+      "text": "I run my agents with full permissions in containers. Feels like a reasonable tradeoff. Bonus is I can set up each container with exactly the stack needed.",
+      "time": 1770359539,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "apetresc",
+      "id": 46909402,
+      "kids": [
+        46909434,
+        46909556
+      ],
+      "parent": 46909386,
+      "text": "Honest question, when was the last time you caught it trying to use a command that was going to &quot;nuke your system&quot;?",
+      "time": 1770354988,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "FeteCommuniste",
+      "id": 46908005,
+      "parent": 46907386,
+      "text": "AI adoption is being heavily pushed at my work and personally I do use it, but only for the really &quot;boilerplate-y&quot; kinds of code I&#x27;ve already written hundreds of times before. I see it as a way to offload the more &quot;typing-intensive&quot; parts of coding (where the bottleneck is literally just my WPM on the keyboard) so I have more time to spend on the trickier &quot;thinking-intensive&quot; parts.",
+      "time": 1770342727,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "luisgvv",
+      "id": 46909303,
+      "parent": 46907386,
+      "text": "I was using it the same way you just described but for C# and Angular and you&#x27;re spot on. It feels amazing not having to memorize APIs and just let the AI even do code coverage near to 100%, however at some point I began noticing 2 things:<p>- When tests didn&#x27;t work I had to check what was going on and the LLMs do cheat a lot with Volkswagen tests, so that began to make me skeptic even of what is being written by the agents<p>- When things were broken, spaghetti and awful code tends to be written in an obnoxius way it&#x27;s beyond repairable and made me wish I had done it from scratch.<p>Thankfully I just tried using agents for tests and not for the actual code, but it makes me think a lot if &quot;vibe coding&quot; really produces quality work.",
+      "time": 1770353736,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "swordsith",
+      "id": 46911097,
+      "parent": 46907696,
+      "text": "I&#x27;ve found mostly for context reasons its better to just have a grand overview of the systems and how they work together and feed that to the agent as context, it will use the additional files it touches to expand its understanding if you prompt well.",
+      "time": 1770373011,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "skrebbel",
+      "id": 46910553,
+      "kids": [
+        46911075
+      ],
+      "parent": 46910155,
+      "text": "I don&#x27;t think you appreciate how un-bribeable this particular author is, and I don&#x27;t just mean in a moral sense.",
+      "time": 1770368037,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "fergie",
+      "id": 46910489,
+      "kids": [
+        46912010
+      ],
+      "parent": 46910155,
+      "text": "He explicitly said &quot;I don&#x27;t work for, invest in, or advise any AI companies.&quot; in the article.<p>But yes, Hashimoto is a high profile CEO&#x2F;CTO who may well have an indirect, or near-future interest in talking up AI. HN articles extoling the productivity gains of Claude on HN do generally tend to be from older, managerial types (make of that what you will).",
+      "time": 1770367340,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "simianwords",
+      "id": 46910169,
+      "kids": [
+        46910197,
+        46910199
+      ],
+      "parent": 46910155,
+      "text": "Bit strange that you are skeptical by default.",
+      "time": 1770363771,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "JoshuaDavid",
+      "id": 46905892,
+      "parent": 46905853,
+      "text": "Low hundreds ($190 for me) but yes.",
+      "time": 1770328302,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "latchkey",
+      "id": 46906213,
+      "kids": [
+        46909714
+      ],
+      "parent": 46905853,
+      "text": "I quickly run out of the JetBrains AI 35 monthly credits for $300&#x2F;yr and spending an additional $5-10&#x2F;day on top of that, mostly for Claude.<p>I just recently added in Codex, since it comes with my $20&#x2F;mo subscription to GPT and that&#x27;s lowering my Claude credit usage significantly... until I hit those limits at some point.<p>20<i>12 + 300 + 5</i>~200... so about $1500-$1600&#x2F;year.<p>It is 100% worth it for what I&#x27;m building right now, but my fear is that I&#x27;ll take a break from coding and then I&#x27;m paying for something I&#x27;m not using with the subscriptions.<p>I&#x27;d prefer to move to a model where I&#x27;m paying for compute time as I use it, instead of worrying about tokens&#x2F;credits.",
+      "time": 1770330028,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "dang",
+      "id": 46905721,
+      "parent": 46905486,
+      "text": "&quot;<i>Please don&#x27;t post shallow dismissals, especially of other people&#x27;s work. A good critical comment teaches us something.</i>&quot;<p>&quot;<i>Don&#x27;t be snarky.</i>&quot;<p>&quot;<i>Don&#x27;t be curmudgeonly. Thoughtful criticism is fine, but please don&#x27;t be rigidly or generically negative.</i>&quot;<p><a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;newsguidelines.html\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;newsguidelines.html</a>",
+      "time": 1770327437,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "jorvi",
+      "id": 46905720,
+      "kids": [
+        46906108,
+        46906680
+      ],
+      "parent": 46904796,
+      "text": "The AI skeptics instead stick to hard data, which so far shows a 19% reduction in productivity when using AI.",
+      "time": 1770327437,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "recursive",
+      "id": 46905951,
+      "parent": 46904796,
+      "text": "Perhaps that&#x27;s the reason.  Maybe I&#x27;m just not a good enough developer.  But that&#x27;s still not actionable.  It&#x27;s not like I never considered being a better developer.",
+      "time": 1770328589,
+      "type": "comment",
+      "depth": 1
+    },
+    {
+      "by": "z0r",
+      "id": 46905341,
+      "parent": 46904796,
+      "text": "I&#x27;m not as good as Fabrice Bellard either but I don&#x27;t let that bother me as I go about my day.",
+      "time": 1770325663,
+      "type": "comment",
+      "depth": 1
+    }
+  ]
+}

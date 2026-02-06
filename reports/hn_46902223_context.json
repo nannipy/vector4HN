@@ -1,0 +1,1369 @@
+{
+  "story": {
+    "by": "HellsMaddy",
+    "descendants": 912,
+    "id": 46902223,
+    "kids": [
+      46913325,
+      46905735,
+      46902729,
+      46902560,
+      46902596,
+      46902495,
+      46911647,
+      46902404,
+      46902408,
+      46905404,
+      46908854,
+      46908533,
+      46907498,
+      46911250,
+      46912265,
+      46902522,
+      46905923,
+      46910893,
+      46902427,
+      46904947,
+      46911331,
+      46911909,
+      46902496,
+      46902559,
+      46902699,
+      46911273,
+      46902452,
+      46905246,
+      46911897,
+      46902767,
+      46904936,
+      46905879,
+      46910552,
+      46902542,
+      46903100,
+      46902481,
+      46912522,
+      46904132,
+      46902370,
+      46902613,
+      46902762,
+      46909110,
+      46903217,
+      46910777,
+      46907680,
+      46902275,
+      46911269,
+      46902630,
+      46909991,
+      46910306,
+      46907658,
+      46903988,
+      46904736,
+      46906185,
+      46908986,
+      46910257,
+      46905675,
+      46909235,
+      46911073,
+      46906541,
+      46902743,
+      46903221,
+      46906849,
+      46902350,
+      46902371,
+      46902352,
+      46902405,
+      46902754,
+      46912676,
+      46905526,
+      46909901,
+      46902394,
+      46902711,
+      46911314,
+      46902605,
+      46904288,
+      46902662,
+      46902675,
+      46903016,
+      46903381,
+      46905506,
+      46902809,
+      46904485,
+      46903276,
+      46905061,
+      46904567,
+      46904097,
+      46902864,
+      46902475,
+      46906033,
+      46902576,
+      46906038,
+      46902502,
+      46908299,
+      46902248,
+      46904006,
+      46902323,
+      46902249,
+      46902245,
+      46906581,
+      46902688,
+      46907279,
+      46902259,
+      46903357,
+      46904793,
+      46903199,
+      46910309,
+      46902369,
+      46910824,
+      46910770,
+      46912692,
+      46903841,
+      46909158,
+      46908236,
+      46903577,
+      46908636,
+      46902444,
+      46904282,
+      46908309
+    ],
+    "score": 2120,
+    "time": 1770313133,
+    "title": "Claude Opus 4.6",
+    "type": "story",
+    "url": "https://www.anthropic.com/news/claude-opus-4-6"
+  },
+  "article_text": "Announcements Introducing Claude Opus 4.6 Feb 5, 2026 We\u2019re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor\u2019s coding skills. It plans more carefully, sustains agentic tasks for longer, can operate more reliably in larger codebases, and has better code review and debugging skills to catch its own mistakes. And, in a first for our Opus-class models, Opus 4.6 features a 1M token context window in beta. Opus 4.6 can also apply its improved abilities to a range of everyday work tasks: running financial analyses, doing research, and using and creating documents, spreadsheets, and presentations. Within Cowork , where Claude can multitask autonomously, Opus 4.6 can put all these skills to work on your behalf. The model\u2019s performance is state-of-the-art on several evaluations. For example, it achieves the highest score on the agentic coding evaluation Terminal-Bench 2.0 and leads all other frontier models on Humanity\u2019s Last Exam , a complex multidisciplinary reasoning test. On GDPval-AA \u2014an evaluation of performance on economically valuable knowledge work tasks in finance, legal, and other domains 1 \u2014Opus 4.6 outperforms the industry\u2019s next-best model (OpenAI\u2019s GPT-5.2) by around 144 Elo points, 2 and its own predecessor (Claude Opus 4.5) by 190 points. Opus 4.6 also performs better than any other model on BrowseComp , which measures a model\u2019s ability to locate hard-to-find information online. As we show in our extensive system card , Opus 4.6 also shows an overall safety profile as good as, or better than, any other frontier model in the industry, with low rates of misaligned behavior across safety evaluations. Knowledge work Agentic search Coding Reasoning Opus 4.6 is state-of-the-art on real-world work tasks across several professional domains. Opus 4.6 gets the highest score in the industry for deep, multi-step agentic search. Opus 4.6 excels at real-world agentic coding and system tasks. Opus 4.6 extends the frontier of expert-level reasoning. In Claude Code, you can now assemble agent teams to work on tasks together. On the API, Claude can use compaction to summarize its own context and perform longer-running tasks without bumping up against limits. We\u2019re also introducing adaptive thinking , where the model can pick up on contextual clues about how much to use its extended thinking, and new effort controls to give developers more control over intelligence, speed, and cost. We\u2019ve made substantial upgrades to Claude in Excel , and we\u2019re releasing Claude in PowerPoint in a research preview. This makes Claude much more capable for everyday work. Claude Opus 4.6 is available today on claude.ai , our API, and all major cloud platforms. If you\u2019re a developer, use claude-opus-4-6 via the Claude API . Pricing remains the same at $5/$25 per million tokens; for full details, see our pricing page . We cover the model, our new product updates, our evaluations, and our extensive safety testing in depth below. First impressions We build Claude with Claude. Our engineers write code with Claude Code every day, and every new model first gets tested on our own work. With Opus 4.6, we\u2019ve found that the model brings more focus to the most challenging parts of a task without being told to, moves quickly through the more straightforward parts, handles ambiguous problems with better judgment, and stays productive over longer sessions. Opus 4.6 often thinks more deeply and more carefully revisits its reasoning before settling on an answer. This produces better results on harder problems, but can add cost and latency on simpler ones. If you\u2019re finding that the model is overthinking on a given task, we recommend dialing effort down from its default setting (high) to medium. You can control this easily with the /effort parameter . Here are some of the things our Early Access partners told us about Claude Opus 4.6, including its propensity to work autonomously without hand-holding, its success where previous models failed, and its effect on how teams work: Claude Opus 4.6 is the strongest model Anthropic has shipped. It takes complicated requests and actually follows through, breaking them into concrete steps, executing, and producing polished work even when the task is ambitious. For Notion users, it feels less like a tool and more like a capable collaborator. Early testing shows Claude Opus 4.6 delivering on the complex, multi-step coding work developers face every day\u2014especially agentic workflows that demand planning and tool calling. This starts unlocking long-horizon tasks at the frontier. Claude Opus 4.6 is a huge leap for agentic planning. It breaks complex tasks into independent subtasks, runs tools and subagents in parallel, and identifies blockers with real precision. Claude Opus 4.6 is the best model we've tested yet. Its reasoning and planning capabilities have been exceptional at powering our AI Teammates. It's also a fantastic coding model \u2013 its ability to navigate a large codebase and identify the right changes to make is state of the art. Claude Opus 4.6 reasons through complex problems at a level we haven't seen before. It considers edge cases that other models miss and consistently lands on more elegant, well-considered solutions. We're particularly impressed with Opus 4.6 in Devin Review, where it's increased our bug catching rates. Claude Opus 4.6 feels noticeably better than Opus 4.5 in Windsurf, especially on tasks that require careful exploration like debugging and understanding unfamiliar codebases. We\u2019ve noticed Opus 4.6 thinks longer, which pays off when deeper reasoning is needed. Claude Opus 4.6 represents a meaningful leap in long-context performance. In our testing, we saw it handle much larger bodies of information with a level of consistency that strengthens how we design and deploy complex research workflows. Progress in this area gives us more powerful building blocks to deliver truly expert-grade systems professionals can trust. Across 40 cybersecurity investigations, Claude Opus 4.6 produced the best results 38 of 40 times in a blind ranking against Claude 4.5 models. Each model ran end to end on the same agentic harness with up to 9 subagents and 100+ tool calls. Claude Opus 4.6 is the new frontier on long-running tasks from our internal benchmarks and testing. It's also been highly effective at reviewing code. Claude Opus 4.6 achieved the highest BigLaw Bench score of any Claude model at 90.2%. With 40% perfect scores and 84% above 0.8, it\u2019s remarkably capable for legal reasoning. Claude Opus 4.6 autonomously closed 13 issues and assigned 12 issues to the right team members in a single day, managing a ~50-person organization across 6 repositories. It handled both product and organizational decisions while synthesizing context across multiple domains, and it knew when to escalate to a human. Claude Opus 4.6 is an uplift in design quality. It works beautifully with our design systems and it\u2019s more autonomous, which is core to Lovable\u2019s values. People should be creating things that matter, not micromanaging AI. Claude Opus 4.6 excels in high-reasoning tasks like multi-source analysis across legal, financial, and technical content. Box\u2019s eval showed a 10% lift in performance, reaching 68% vs. a 58% baseline, and near-perfect scores in technical domains. Claude Opus 4.6 generates complex, interactive apps and prototypes in Figma Make with an impressive creative range. The model translates detailed designs and multi-layered tasks into code on the first try, making it a powerful starting point for teams to explore and build ideas. Claude Opus 4.6 is the best Anthropic model we\u2019ve tested. It understands intent with minimal prompting and went above and beyond, exploring and creating details I didn\u2019t even know I wanted until I saw them. It felt like I was working with the model, not waiting on it. Both hands-on testing and evals show Claude Opus 4.6 is a meaningful improvement for design systems and large codebases, use cases that drive enormous enterprise value. It also one-shotted a fully functional physics engine, handling a large multi-scope task in a single pass. Claude Opus 4.6 is the biggest leap I\u2019ve seen in months. I\u2019m more comfortable giving it a sequence of tasks across the stack and letting it run. It\u2019s smart enough to use subagents for the individual pieces. Claude Opus 4.6 handled a multi-million-line codebase migration like a senior engineer. It planned up front, adapted its strategy as it learned, and finished in half the time. We only ship models in v0 when developers will genuinely feel the difference. Claude Opus 4.6 passed that bar with ease. Its frontier-level reasoning, especially with edge cases, helps v0 to deliver on our number-one aim: to let anyone elevate their ideas from prototype to production. The performance jump with Claude Opus 4.6 feels almost unbelievable. Real-world tasks that were challenging for Opus [4.5] suddenly became easy. This feels like a watershed moment for spreadsheet agents on Shortcut. 01 / 20 Evaluating Claude Opus 4.6 Across agentic coding, computer use, tool use, search, and finance , Opus 4.6 is an industry-leading model, often by a wide margin. The table below shows how Claude Opus 4.6 compares to our previous models and to other industry models on a variety of benchmarks. Opus 4.6 is much better at retrieving relevant information from large sets of documents. This extends to long-context tasks, where it holds and tracks information over hundreds of thousands of tokens with less drift, and picks up buried details that even Opus 4.5 would miss. A common complaint about AI models is \u201c context rot ,\u201d where performance degrades as conversations exceed a certain number of tokens. Opus 4.6 performs markedly better than its predecessors: on the 8-needle 1M variant of MRCR v2 \u2014a needle-in-a-haystack benchmark that tests a model\u2019s ability to retrieve information \u201chidden\u201d in vast amounts of text\u2014Opus 4.6 scores 76%, whereas Sonnet 4.5 scores just 18.5%. This is a qualitative shift in how much context a model can actually use while maintaining peak performance. All in all, Opus 4.6 is better at finding information across long contexts, better at reasoning after absorbing that information, and has substantially better expert-level reasoning abilities in general. Long-context retrieval Long-context reasoning Opus 4.6 shows significant improvement in long-context retrieval. Opus 4.6 excels at deep reasoning across long contexts. Finally, the charts below show how Claude Opus 4.6 performs on a variety of benchmarks that assess its software engineering skills, multilingual coding ability, long-term coherence, cybersecurity capabilities, and its life sciences knowledge. Root cause analysis Multilingual coding Long-term coherence Cybersecurity Life sciences Opus 4.6 excels at diagnosing complex software failures. Opus 4.6 resolves software engineering issues across programming languages. Opus 4.6 maintains focus over time and earns $3,050.53 more than Opus 4.5 on Vending-Bench 2. Opus 4.6 finds real vulnerabilities in codebases better than any other model. Opus 4.6 performs almost 2\u00d7 better than Opus 4.5 on computational biology, structural biology, organic chemistry, and phylogenetics tests. A step forward on safety These intelligence gains do not come at the cost of safety. On our automated behavioral audit, Opus 4.6 showed a low rate of misaligned behaviors such as deception, sycophancy, encouragement of user delusions, and cooperation with misuse. Overall, it is just as well-aligned as its predecessor, Claude Opus 4.5, which was our most-aligned frontier model to date. Opus 4.6 also shows the lowest rate of over-refusals\u2014where the model fails to answer benign queries\u2014of any recent Claude model. The overall misaligned behavior score for each recent Claude model on our automated behavioral audit (described in full in the Claude Opus 4.6 system card ). For Claude Opus 4.6, we ran the most comprehensive set of safety evaluations of any model, applying many different tests for the first time and upgrading several that we\u2019ve used before. We included new evaluations for user wellbeing, more complex tests of the model\u2019s ability to refuse potentially dangerous requests, and updated evaluations of the model\u2019s ability to surreptitiously perform harmful actions. We also experimented with new methods from interpretability , the science of the inner workings of AI models, to begin to understand why the model behaves in certain ways\u2014and, ultimately, to catch problems that standard testing might miss. A detailed description of all capability and safety evaluations is available in the Claude Opus 4.6 system card . We\u2019ve also applied new safeguards in areas where Opus 4.6 shows particular strengths that might be put to dangerous as well as beneficial uses. In particular, since the model shows enhanced cybersecurity abilities, we\u2019ve developed six new cybersecurity probes \u2014methods of detecting harmful responses\u2014to help us track different forms of potential misuse. We\u2019re also accelerating the cyber defensive uses of the model, using it to help find and patch vulnerabilities in open-source software (as we describe in our new cybersecurity blog post ). We think it\u2019s critical that cyberdefenders use AI models like Claude to help level the playing field. Cybersecurity moves fast, and we\u2019ll be adjusting and updating our safeguards as we learn more about potential threats; in the near future, we may institute real-time intervention to block abuse. Product and API updates We\u2019ve made substantial updates across Claude, Claude Code, and the Claude Developer Platform to let Opus 4.6 perform at its best. Claude Developer Platform On the API, we\u2019re giving developers better control over model effort and more flexibility for long-running agents. To do so, we\u2019re introducing the following features: Adaptive thinking. Previously, developers only had a binary choice between enabling or disabling extended thinking. Now, with adaptive thinking , Claude can decide when deeper reasoning would be helpful. At the default effort level (high), the model uses extended thinking when useful, but developers can adjust the effort level to make it more or less selective. Effort. There are now four effort levels to choose from: low, medium, high (default), and max. We encourage developers to experiment with different options to find what works best. Context compaction (beta). Long-running conversations and agentic tasks often hit the context window. Context compaction automatically summarizes and replaces older context when the conversation approaches a configurable threshold, letting Claude perform longer tasks without hitting limits. 1M token context (beta). Opus 4.6 is our first Opus-class model with 1M token context. Premium pricing applies for prompts exceeding 200k tokens ($10/$37.50 per million input/output tokens). 128k output tokens. Opus 4.6 supports outputs of up to 128k tokens, which lets Claude complete larger-output tasks without breaking them into multiple requests. US-only inference. For workloads that need to run in the United States, US-only inference is available at 1.1\u00d7 token pricing. Product updates Across Claude and Claude Code, we\u2019ve added features that allow knowledge workers and developers to tackle harder tasks with more of the tools they use every day. We\u2019ve introduced agent teams in Claude Code as a research preview. You can now spin up multiple agents that work in parallel as a team and coordinate autonomously\u2014best for tasks that split into independent, read-heavy work like codebase reviews. You can take over any subagent directly using Shift+Up/Down or tmux . Claude now also works better with the office tools you already use. Claude in Excel handles long-running and harder tasks with improved performance, and can plan before acting, ingest unstructured data and infer the right structure without guidance, and handle multi-step changes in one pass. Pair that with Claude in PowerPoint, and you can first process and structure your data in Excel, then bring it to life visually in PowerPoint. Claude reads your layouts, fonts, and slide masters to stay on brand, whether you\u2019re building from a template or generating a full deck from a description. Claude in PowerPoint is now available in research preview for Max, Team, and Enterprise plans. Footnotes [1] Run independently by Artificial Analysis. See here for full methodological details. [2] This translates into Claude Opus 4.6 obtaining a higher score than GPT-5.2 on this eval approximately 70% of the time (where 50% of the time would have implied parity in the scores). For GPT-5.2 and Gemini 3 Pro models, we compared the best reported model version in the charts and table. Terminal-Bench 2.0 : We report both scores reproduced on our infrastructure and published scores from other labs. All runs used the Terminus-2 harness, except for OpenAI\u2019s Codex CLI. All experiments used 1\u00d7 guaranteed / 3\u00d7 ceiling resource allocation and 5\u201315 samples per task across staggered batches. See system card for details. Humanity\u2019s Last Exam : Claude models run \u201cwith tools\u201d were run with web search, web fetch, code execution, programmatic tool calling, context compaction triggered at 50k tokens up to 3M total tokens, max reasoning effort, and adaptive thinking enabled. A domain blocklist was used to decontaminate eval results. See system card for more details. SWE-bench Verified: Our score was averaged over 25 trials. With a prompt modification, we saw a score of 81.42%. MCP Atlas: Claude Opus 4.6 was run with max effort. When run at high effort, it reached an industry-leading score of 62.7%. BrowseComp : Claude models were run with web search, web fetch, programmatic tool calling, context compaction triggered at 50k tokens up to 10M total tokens, max reasoning effort, and no thinking enabled. Adding a multi-agent harness increased scores to 86.8%. See system card for more details. ARC AGI 2: Claude Opus 4.6 was run with max effort and a 120k thinking budget score. CyberGym : Claude models were run on no thinking, default effort, temperature, and top_p . The model was also given a \u201cthink\u201d tool that allowed interleaved thinking for multi-turn evaluations. OpenRCA : For each failure case in OpenRCA, Claude receives 1 point if all generated root-cause elements match the ground-truth ones, and 0 points if any mismatch is identified. The overall accuracy is the average score across all failure cases. The benchmark was run on the benchmark author\u2019s harness, graded using their official methodology, and has been submitted for official verification. Related content Claude is a space to think We\u2019ve made a choice: Claude will remain ad-free. We explain why advertising incentives are incompatible with a genuinely helpful AI assistant, and how we plan to expand access without compromising user trust. Read more Apple\u2019s Xcode now supports the Claude Agent SDK Read more Anthropic partners with Allen Institute and Howard Hughes Medical Institute to accelerate scientific discovery Read more Claude Opus 4.6 \\ Anthropic",
+  "comments": [
+    {
+      "by": "setgree",
+      "id": 46913325,
+      "parent": 46902223,
+      "text": "I asked<p>&gt; Can you find an academic article that _looks_ legitimate -- looks like a real journal, by researchers with what look like real academic affiliations, has been cited hundreds or thousands of times -- but is obviously nonsense, e.g. has glaring typos in the abstract, is clearly garbled or nonsensical?<p>It pointed me to a bunch of hoaxes. I clarified:<p>&gt; no, I&#x27;m not looking for a hoax, or a deliberate comment on the situation. I&#x27;m looking for something that drives home the point that a lot of academic papers that look legit are actually meaningless but, as far as we can tell, are sincere<p>It provided <a href=\"https:&#x2F;&#x2F;www.sciencedirect.com&#x2F;science&#x2F;article&#x2F;pii&#x2F;S2468023024002402\" rel=\"nofollow\">https:&#x2F;&#x2F;www.sciencedirect.com&#x2F;science&#x2F;article&#x2F;pii&#x2F;S246802302...</a>.<p>Close, but that&#x27;s been retracted. So I asked for &quot;something that looks like it&#x27;s been translated from another language to english very badly and has no actual content? And don&#x27;t forget the cited many times criteria. &quot; And finally it told me that the thing I&#x27;m looking for probably doesn&#x27;t exist.<p>For my tastes telling me &quot;no&quot; instead of hallucinating an answer is a real breakthrough.",
+      "time": 1770388552,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "ck_one",
+      "id": 46905735,
+      "kids": [
+        46910927,
+        46910744,
+        46906056,
+        46909528,
+        46906441,
+        46906057,
+        46913200,
+        46913058,
+        46911147,
+        46905894,
+        46906697,
+        46907128,
+        46906956,
+        46907264,
+        46906352,
+        46910745,
+        46907876,
+        46907044,
+        46906375,
+        46906194,
+        46907216,
+        46908287,
+        46910241,
+        46906083,
+        46907862,
+        46906437,
+        46910336
+      ],
+      "parent": 46902223,
+      "text": "Just tested the new Opus 4.6 (1M context) on a fun needle-in-a-haystack challenge: finding every spell in all Harry Potter books.<p>All 7 books come to ~1.75M tokens, so they don&#x27;t quite fit yet. (At this rate of progress, mid-April should do it ) For now you can fit the first 4 books (~733K tokens).<p>Results: Opus 4.6 found 49 out of 50 officially documented spells across those 4 books. The only miss was &quot;Slugulus Eructo&quot; (a vomiting spell).<p>Freaking impressive!",
+      "time": 1770327512,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "gizmodo59",
+      "id": 46902729,
+      "kids": [
+        46903665,
+        46902982,
+        46910495,
+        46902884,
+        46902956
+      ],
+      "parent": 46902223,
+      "text": "5.3 codex <a href=\"https:&#x2F;&#x2F;openai.com&#x2F;index&#x2F;introducing-gpt-5-3-codex&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;openai.com&#x2F;index&#x2F;introducing-gpt-5-3-codex&#x2F;</a> crushes with a 77.3% in Terminal Bench. The shortest lived lead in less than 35 minutes. What a time to be alive!",
+      "time": 1770315241,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "pjot",
+      "id": 46902560,
+      "kids": [
+        46902647
+      ],
+      "parent": 46902223,
+      "text": "Claude Code release notes:<p><pre><code>  &gt; Version 2.1.32:\n     \u2022 Claude Opus 4.6 is now available!\n     \u2022 Added research preview agent teams feature for multi-agent collaboration (token-intensive feature, requires setting\n     CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1)\n     \u2022 Claude now automatically records and recalls memories as it works\n     \u2022 Added &quot;Summarize from here&quot; to the message selector, allowing partial conversation summarization.\n     \u2022 Skills defined in .claude&#x2F;skills&#x2F; within additional directories (--add-dir) are now loaded automatically.\n     \u2022 Fixed @ file completion showing incorrect relative paths when running from a subdirectory\n     \u2022 Updated --resume to re-use --agent value specified in previous conversation by default.\n     \u2022 Fixed: Bash tool no longer throws &quot;Bad substitution&quot; errors when heredocs contain JavaScript template literals like ${index + 1}, which\n     previously interrupted tool execution\n     \u2022 Skill character budget now scales with context window (2% of context), so users with larger context windows can see more skill descriptions\n     without truncation\n     \u2022 Fixed Thai&#x2F;Lao spacing vowels (\u0e2a\u0e23\u0e30 \u0e32, \u0e33) not rendering correctly in the input field\n     \u2022 VSCode: Fixed slash commands incorrectly being executed when pressing Enter with preceding text in the input field\n     \u2022 VSCode: Added spinner when loading past conversations list</code></pre>",
+      "time": 1770314596,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "legitster",
+      "id": 46902596,
+      "kids": [
+        46909411,
+        46902671,
+        46912998,
+        46913155,
+        46905227,
+        46902774,
+        46910644,
+        46907989,
+        46907490,
+        46909574,
+        46907336,
+        46910133
+      ],
+      "parent": 46902223,
+      "text": "I&#x27;m still not sure I understand Anthropic&#x27;s general strategy right now.<p>They are doing these broad marketing programs trying to take on ChatGPT for &quot;normies&quot;. And yet their bread and butter is still clearly coding.<p>Meanwhile, Claude&#x27;s general use cases are... fine. For generic research topics, I find that ChatGPT and Gemini run circles around it: in the depth of research, the type of tasks it can handle, and the quality and presentation of the responses.<p>Anthropic is also doing all of these goofy things to try to establish the &quot;humanity&quot; of their chatbot - giving it rights and a constitution and all that. Yet it weirdly feels the most transactional out of all of them.<p>Don&#x27;t get me wrong, I&#x27;m a paying Claude customer and love what it&#x27;s good at. I just think there&#x27;s a disconnect between what Claude is and what their marketing department thinks it is.",
+      "time": 1770314712,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "simonw",
+      "id": 46902495,
+      "kids": [
+        46903424,
+        46903230,
+        46904975,
+        46902677,
+        46902691,
+        46905373,
+        46905996,
+        46902748,
+        46902628,
+        46904014,
+        46905186,
+        46904107,
+        46902724,
+        46902583,
+        46904689,
+        46904452,
+        46902551,
+        46902528,
+        46908208,
+        46902786,
+        46905513,
+        46903089,
+        46905528
+      ],
+      "parent": 46902223,
+      "text": "The bicycle frame is a bit wonky but the pelican itself is great: <a href=\"https:&#x2F;&#x2F;gist.github.com&#x2F;simonw&#x2F;a6806ce41b4c721e240a4548ecdbe216?permalink_comment_id=5972110#gistcomment-5972110\" rel=\"nofollow\">https:&#x2F;&#x2F;gist.github.com&#x2F;simonw&#x2F;a6806ce41b4c721e240a4548ecdbe...</a>",
+      "time": 1770314332,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "insomagent",
+      "id": 46911647,
+      "kids": [
+        46911700,
+        46911698
+      ],
+      "parent": 46902223,
+      "text": "I&#x27;m not super impressed with the performance, actually.  I&#x27;m finding that it misunderstands me quite a bit.  While it is definitely better at reading big codebases and finding a needle in a haystack, it&#x27;s nowhere near as good as Opus 4.5 at reading between the lines and figuring out what I really want it to do, even with a pretty well defined issue.<p>It also has a habit of &quot;running wild&quot;.  If I say &quot;first, verify you understand everything and then we will implement it.&quot;<p>Well, it DOES output its understanding of the issue.  And it&#x27;s pretty spot-on on the analysis of the issue.  But, importantly, it did not correctly intuit my actual request: &quot;First, explain your understanding of this issue to me so I can validate your logic.  Then STOP, so I can read it and give you the go ahead to implement.&quot;<p>I think the main issue we are going to see with Opus 4.6 is this &quot;running wild&quot; phenomenon, which is step 1 of the eternal paperclip optimizer machine.  So be careful, especially when using &quot;auto accept edits&quot;",
+      "time": 1770377642,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "blibble",
+      "id": 46902404,
+      "kids": [
+        46902492,
+        46902648,
+        46902594,
+        46903557,
+        46902411,
+        46906436,
+        46902666,
+        46903039
+      ],
+      "parent": 46902223,
+      "text": "&gt; We build Claude with Claude. Our engineers write code with Claude Code every day<p>well that explains quite a bit",
+      "time": 1770313965,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "Someone1234",
+      "id": 46902408,
+      "kids": [
+        46902530,
+        46902841,
+        46904470,
+        46902546,
+        46902536,
+        46904392,
+        46903566,
+        46902543,
+        46903081,
+        46903783
+      ],
+      "parent": 46902223,
+      "text": "Does anyone with more insight into the AI&#x2F;LLM industry happen to know if the cost to run them in normal user-workflows is falling? The reason I&#x27;m asking is because &quot;agent teams&quot; while a cool concept, it largely constrained by the economics of running multiple LLM agents (i.e. plans&#x2F;API calls that make this practical at scale are expensive).<p>A year or more ago, I read that both Anthropic and OpenAI were losing money on every single request even for their paid subscribers, and I don&#x27;t know if that has changed with more efficient hardware&#x2F;software improvements&#x2F;caching.",
+      "time": 1770313979,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "rahulroy",
+      "id": 46905404,
+      "kids": [
+        46909952,
+        46906561,
+        46910075,
+        46910222,
+        46905878
+      ],
+      "parent": 46902223,
+      "text": "They are also giving away $50 extra pay as you go credit to try Opus 4.6. I just claimed it from the web usage page[1]. Are they anticipating higher token usage for the model or just want to promote the usage?<p>[1] <a href=\"https:&#x2F;&#x2F;claude.ai&#x2F;settings&#x2F;usage\" rel=\"nofollow\">https:&#x2F;&#x2F;claude.ai&#x2F;settings&#x2F;usage</a>",
+      "time": 1770326000,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "anupamchugh",
+      "id": 46908854,
+      "parent": 46902223,
+      "text": "<p><pre><code>  Agent teams in this release is mcp-agent-mail [1] built into\n  the runtime. Mailbox, task list, file locking \u2014 zero config,\n  just works. I forked agent-mail [2], added heartbeat&#x2F;presence\n  tracking, had a PR upstream [3] when agent teams dropped. For\n  coordinating Claude Code instances within a session, the\n  built-in version wins on friction alone.\n\n  Where it stops: agent teams is session-scoped. I run Claude\n  Code during the day, hand off to Codex overnight, pick up in\n  the morning. Different runtimes, async, persistent. Agent\n  teams dies when you close the terminal \u2014 no cross-tool\n  messaging, no file leases, no audit trail that outlives the\n  session.\n\n  What survives sherlocking is whatever crosses the runtime\n  boundary. The built-in version will always win inside its own\n  walls \u2014 less friction, zero setup. The cross-tool layer is\n  where community tooling still has room. Until that gets\n  absorbed too.\n\n  [1] https:&#x2F;&#x2F;github.com&#x2F;Dicklesworthstone&#x2F;mcp_agent_mail\n  [2] https:&#x2F;&#x2F;github.com&#x2F;anupamchugh&#x2F;mcp_agent_mail\n  [3]\n  https:&#x2F;&#x2F;github.com&#x2F;Dicklesworthstone&#x2F;mcp_agent_mail&#x2F;pull&#x2F;77</code></pre>",
+      "time": 1770349681,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "atonse",
+      "id": 46908533,
+      "kids": [
+        46909377,
+        46908552
+      ],
+      "parent": 46902223,
+      "text": "Wow, I have been using Open 4.6 and for the last 15 minutes, and it&#x27;s already made two extremely stupid mistakes... like misunderstanding basic instructions and editing the file in a very silly, basic way. Pretty bad. Never seen this with any model before.<p>The one bone I&#x27;ll throw it was that I was asking it to edit its own MCP configs. So maybe it got thoroughly confused?<p>I dunno what&#x27;s going on, I&#x27;m going to give it the night. It makes no sense whatsoever.",
+      "time": 1770347023,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "replwoacause",
+      "id": 46907498,
+      "kids": [
+        46910883,
+        46907523
+      ],
+      "parent": 46902223,
+      "text": "I feel like I can&#x27;t even try this on the Pro plan because Anthropic has conditioned me to understand that even chatting lightly with the Opus model blows up usage and locks me out. So if I would normally use Sonnet 4.5 for a day&#x27;s worth of work but I wake up and ask Opus a couple of questions, I might as well just forget about doing anything with Claude for the rest of the day lol. But so far I haven&#x27;t had this issue with ChatGPT. Their 5.2 model (haven&#x27;t tried 5.3) worked on something for 2 FREAKING HOURS and I still haven&#x27;t run into any limits. So yeah, Opus is out for me now unfortunately. Hopefully they make the Sonnet model better though!",
+      "time": 1770338084,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "andmarios",
+      "id": 46911250,
+      "parent": 46902223,
+      "text": "The model seems to have some problems; it just failed to create a markdown table with just 4 rows. The top (title) row had 2 columns, yet in 2 of the 3 data rows, Opus 4.6 tried to add a 3rd column. I had to tell it more than once to get it fixed...<p>This never happened with Opus 4.5 despite a lot of usage.",
+      "time": 1770374283,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "mattacular",
+      "id": 46912265,
+      "kids": [
+        46912304,
+        46913389,
+        46912452
+      ],
+      "parent": 46902223,
+      "text": "It&#x27;s hard to tell with these releases if Anthropic&#x27;s astroturfing campaign has come to HN or not but I feel like it probably has",
+      "time": 1770382699,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "dmk",
+      "id": 46902522,
+      "kids": [
+        46902949,
+        46903724,
+        46903409
+      ],
+      "parent": 46902223,
+      "text": "The benchmarks are cool and all but 1M context on an Opus-class model is the real headline here imo. Has anyone actually pushed it to the limit yet? Long context has historically been one of those &quot;works great in the demo&quot; situations.",
+      "time": 1770314443,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "hmaxwell",
+      "id": 46905923,
+      "kids": [
+        46907475,
+        46910390,
+        46906412
+      ],
+      "parent": 46902223,
+      "text": "I just tested both codex 5.3 and opus 4.6 and both returned pretty good output, but opus 4.6&#x27;s limits are way too strict. I am probably going to cancel my Claude subscription for that reason:<p>What do you want to do?<p><pre><code>  1. Stop and wait for limit to reset\n   2. Switch to extra usage\n   3. Upgrade your plan\n\n Enter to confirm \u00b7 Esc to cancel\n</code></pre>\nHow come they don&#x27;t have &quot;Cancel your subscription and uninstall Claude Code&quot;? Codex lasts for way longer without shaking me down for more money off the base $xx&#x2F;month subscription.",
+      "time": 1770328443,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "blueblisters",
+      "id": 46910893,
+      "parent": 46902223,
+      "text": "I know most people feel 5.2 is a better coding model but Opus has come in handy several times when 5.2 was stuck, especially for more &quot;weird&quot; tasks like debugging a VIO algorithm.<p>5.2 (and presumably 5.3) is really smart though and feels like it has higher &quot;raw&quot; intelligence.<p>Opus feels like a better model to talk to, and does a much better job at non-coding tasks especially in the Claude Desktop app.<p>Here&#x27;s an example prompt where Opus in Claude put in a lot more effort and did a better job than GPT5.2 Thinking in ChatGPT:<p>`find all the pure software &#x2F; saas stocks on the nyse&#x2F;nasdaq with at least $10B of market cap. and give me a breakdown of their performance over the last 2 years, 1 year and 6 months. Also find their TTM and forward PE`<p>Opus usage limits are a bummer though and I am conditioned to reach for Codex&#x2F;ChatGPT for most trivial stuff.<p>Works out in Anthropic&#x27;s favor, as long as I&#x27;m subscribed to them.",
+      "time": 1770371284,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "minimaxir",
+      "id": 46902427,
+      "kids": [
+        46902567
+      ],
+      "parent": 46902223,
+      "text": "Will Opus 4.6 via Claude Code be able to access the 1M context limit? The cost increase by going above 200k tokens is 2x input, 1.5x output, which is likely worth it especially for people with the $100&#x2F;$200 plans.",
+      "time": 1770314045,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "itay-maman",
+      "id": 46904947,
+      "kids": [
+        46905231
+      ],
+      "parent": 46902223,
+      "text": "Important: I didn&#x27;t see opus 4.6 in claude code. I have native install (which is the recommended instllation). So, I re-run the installation command and, voila, I have it now (v 2.1.32)<p>Installation instructions: <a href=\"https:&#x2F;&#x2F;code.claude.com&#x2F;docs&#x2F;en&#x2F;overview#get-started-in-30-seconds\" rel=\"nofollow\">https:&#x2F;&#x2F;code.claude.com&#x2F;docs&#x2F;en&#x2F;overview#get-started-in-30-s...</a>",
+      "time": 1770324083,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "rchaganti",
+      "id": 46911331,
+      "kids": [
+        46911486
+      ],
+      "parent": 46902223,
+      "text": "I tried 4.6 this morning and it was efficient at understanding a brownfield repo containing a Hugo static site and a custom Hugo theme. Within minutes, it went from exploring every file in the repo to adding new features as Hugo partials. Of course, I ran out of rate-limit! :)<p>It is very impressive though.",
+      "time": 1770375102,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "rektlessness",
+      "id": 46911909,
+      "parent": 46902223,
+      "text": "I&#x27;ve been on pro-tier membership and never used Opus until now. Just gave Opus 4.6 a whirl. OMG. What have I been missing.",
+      "time": 1770380313,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "charcircuit",
+      "id": 46902496,
+      "kids": [
+        46905921,
+        46902732
+      ],
+      "parent": 46902223,
+      "text": "From the press release at least it sounds more expensive than Opus 4.5 (more tokens per request and fees for going over 200k context).<p>It also seems misleading to have charts that compare to Sonnet 4.5 and not Opus 4.5 (Edit: It&#x27;s because Opus 4.5 doesn&#x27;t have a 1M context window).<p>It&#x27;s also interesting they list compaction as a capability of the model. I wonder if this means they have RL trained this compaction as opposed to just being a general summarization and then restarting the agent loop.",
+      "time": 1770314344,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "apetresc",
+      "id": 46902559,
+      "kids": [
+        46904491,
+        46902650
+      ],
+      "parent": 46902223,
+      "text": "Impressive that they publish and acknowledge the (tiny, but existent) drop in performance on SWE-Bench Verified between Opus 4.5 to 4.6. Obviously such a small drop in a single benchmark is not that meaningful, especially if it doesn&#x27;t test the specific focus areas of this release (which seem to be focused around managing larger context).<p>But considering how SWE-Bench Verified seems to be the tech press&#x27; favourite benchmark to cite, it&#x27;s surprising that they didn&#x27;t try to confound the inevitable &quot;Opus 4.6 Releases With Disappointing 0.1% DROP on SWE-Bench Verified&quot; headlines.",
+      "time": 1770314584,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "silverwind",
+      "id": 46902699,
+      "kids": [
+        46904825
+      ],
+      "parent": 46902223,
+      "text": "Maybe that&#x27;s why Opus 4.5 has degraded so much in the recent days (<a href=\"https:&#x2F;&#x2F;marginlab.ai&#x2F;trackers&#x2F;claude-code&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;marginlab.ai&#x2F;trackers&#x2F;claude-code&#x2F;</a>).",
+      "time": 1770315120,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "dahrkael",
+      "id": 46911273,
+      "kids": [
+        46911868
+      ],
+      "parent": 46902223,
+      "text": "I just tried it. designed a very detailed and reaaonable plan, made some amedments to it and wrote it down to a markdown file.\ni told it to implement it and it started implementing the original plan instead of the revised one, that was weird.",
+      "time": 1770374614,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "mFixman",
+      "id": 46902452,
+      "kids": [
+        46902571
+      ],
+      "parent": 46902223,
+      "text": "I found that &quot;Agentic Search&quot; is generally useless in most LLMs since sites with useful data tend to block AI models.<p>The answer to &quot;when is it cheaper to buy two singles rather than one return between Cambridge to London?&quot; is available in sites such as BRFares, but no LLM can scrape it so it just makes up a generic useless answer.",
+      "time": 1770314120,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "oytis",
+      "id": 46905246,
+      "kids": [
+        46907500
+      ],
+      "parent": 46902223,
+      "text": "Are we unemployed yet?",
+      "time": 1770325259,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "cutler",
+      "id": 46911897,
+      "parent": 46902223,
+      "text": "The answer to Life, the Universe and Everything, as we all know, is 42. Who needs Claude when you have Deep Thought.",
+      "time": 1770380141,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "ayhanfuat",
+      "id": 46902767,
+      "kids": [
+        46904379
+      ],
+      "parent": 46902223,
+      "text": "&gt; For Opus 4.6, the 1M context window is available for API and Claude Code pay-as-you-go users. Pro, Max, Teams, and Enterprise subscription users do not have access to Opus 4.6 1M context at launch.<p>I didn&#x27;t see any notes but I guess this is also true for &quot;max&quot; effort level (<a href=\"https:&#x2F;&#x2F;code.claude.com&#x2F;docs&#x2F;en&#x2F;model-config#adjust-effort-level\" rel=\"nofollow\">https:&#x2F;&#x2F;code.claude.com&#x2F;docs&#x2F;en&#x2F;model-config#adjust-effort-l...</a>)? I only see low, medium and high.",
+      "time": 1770315363,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "DanielHall",
+      "id": 46904936,
+      "kids": [
+        46904967
+      ],
+      "parent": 46902223,
+      "text": "A bit surprised, the first one released wasn&#x27;t Sonnet 5 after all, since the Google Cloud API had leaked Sonnet 5&#x27;s model snapshot codename before.",
+      "time": 1770324051,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "mlmonkey",
+      "id": 46905879,
+      "kids": [
+        46907357
+      ],
+      "parent": 46902223,
+      "text": "&gt; We build Claude with Claude.<p>How long before the &quot;we&quot; is actually a team of agents?",
+      "time": 1770328248,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "steve_adams_86",
+      "id": 46910552,
+      "parent": 46902223,
+      "text": "I&#x27;m finding it quite good at doing what it thinks it should do, but noticably worse at understanding what I&#x27;m telling it to do. Anyone else? I&#x27;m both impressed and very disappointed so far.",
+      "time": 1770368024,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "data-ottawa",
+      "id": 46902542,
+      "kids": [
+        46902912
+      ],
+      "parent": 46902223,
+      "text": "I wonder if I\u2019ve been in A&#x2F;B test with this.<p>Claude figured out zig\u2019s ArrayList and io changes a couple weeks ago.<p>It felt like it got better then very dumb again the last few days.",
+      "time": 1770314512,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "jorl17",
+      "id": 46903100,
+      "kids": [
+        46903318,
+        46910084,
+        46910267,
+        46903510
+      ],
+      "parent": 46902223,
+      "text": "This is the first model to which I send my collection of nearly 900 poems and an extremely simple prompt (in Portuguese), and it manages to produce an impeccable analysis of the poems, as a (barely) cohesive whole, which span 15 years.<p>It does not make a single mistake, it identifies neologisms, hidden meaning, 7 distinct poetic phases, recurring themes, fragments&#x2F;heteronyms, related authors. It has left me completely speechless.<p>Speechless. I am speechless.<p>Perhaps Opus 4.5 could do it too \u2014 I don&#x27;t know because I needed the 1M context window for this.<p>I cannot put into words how shocked I am at this. I use LLMs daily, I code with agents, I am extremely bullish on AI and, still, I am shocked.<p>I have used my poetry and an analysis of it as a personal metric for how good models are. Gemini 2.5 pro was the first time a model could keep track of the breadth of the work without getting lost, but Opus 4.6 straight up does not get anything wrong and goes beyond that to identify things (key poems, key motifs, and many other things) that I would always have to kind of trick the models into producing. I would always feel like I was leading the models on. But this \u2014 this \u2014 this is unbelievable. Unbelievable. Insane.<p>This &quot;key poem&quot; thing is particularly surreal to me. Out of 900 poems, while analyzing the collection, it picked 12 &quot;key poems,  and I do agree that 11 of those would be on my 30-or-so &quot;key poem list&quot;. What&#x27;s amazing is that whenever I explicitly asked any model, to this date, to do it, they would get maybe 2 or 3, but mostly fail completely.<p>What is this sorcery?",
+      "time": 1770316532,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "lukebechtel",
+      "id": 46902481,
+      "parent": 46902223,
+      "text": "&gt; Context compaction (beta).<p>&gt; Long-running conversations and agentic tasks often hit the context window. Context compaction automatically summarizes and replaces older context when the conversation approaches a configurable threshold, letting Claude perform longer tasks without hitting limits.<p>Not having to hand roll this would be incredible. One of the best Claude code features tbh.",
+      "time": 1770314248,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "busters4",
+      "id": 46912522,
+      "parent": 46902223,
+      "text": "The AI wars continue",
+      "time": 1770384254,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "throwaway2027",
+      "id": 46904132,
+      "parent": 46902223,
+      "text": "Do they just have the version ready and wait for OpenAI to release theirs first or the other way around or?",
+      "time": 1770320701,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "nomilk",
+      "id": 46902370,
+      "kids": [
+        46902463,
+        46902454,
+        46902401,
+        46902464,
+        46902386,
+        46902526
+      ],
+      "parent": 46902223,
+      "text": "Is Opus 4.6 available for Claude Code immediately?<p>Curious how long it typically takes for a new model to become available in Cursor?",
+      "time": 1770313807,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "archb",
+      "id": 46902613,
+      "kids": [
+        46902964
+      ],
+      "parent": 46902223,
+      "text": "Can set it with the API identifier on Claude Code - `&#x2F;model claude-opus-4-6` when a chat session is open.",
+      "time": 1770314784,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "Aeroi",
+      "id": 46902762,
+      "kids": [
+        46902816,
+        46902872
+      ],
+      "parent": 46902223,
+      "text": "($10&#x2F;$37.50 per million input&#x2F;output tokens) oof",
+      "time": 1770315339,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "energy123",
+      "id": 46909110,
+      "parent": 46902223,
+      "text": "Their ARC-AGI-2 leaderboard[0] scores are insensitive to reasoning effort. Low effort gets 64.6% and High effort gets 69.2%.<p>This is unlike their previous generation of models and their competitors.<p>What does this indicate?<p>[0] <a href=\"https:&#x2F;&#x2F;arcprize.org&#x2F;leaderboard\">https:&#x2F;&#x2F;arcprize.org&#x2F;leaderboard</a>",
+      "time": 1770351963,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "itay-maman",
+      "id": 46903217,
+      "kids": [
+        46903601,
+        46903314,
+        46904766,
+        46905114,
+        46911377,
+        46903520,
+        46903663,
+        46907165
+      ],
+      "parent": 46902223,
+      "text": "Impressive results, but I keep coming back to a question: are there modes of thinking that fundamentally require something other than what current LLM architectures do?<p>Take critical thinking \u2014 genuinely questioning your own assumptions, noticing when a framing is wrong, deciding that the obvious approach to a problem is a dead end. Or creativity \u2014 not recombination of known patterns, but the kind of leap where you redefine the problem space itself. These feel like they involve something beyond &quot;predict the next token really well, with a reasoning trace.&quot;<p>I&#x27;m not saying LLMs will never get there. But I wonder if getting there requires architectural or methodological changes we haven&#x27;t seen yet, not just scaling what we have.",
+      "time": 1770317009,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "woodylondon",
+      "id": 46910777,
+      "parent": 46902223,
+      "text": "So no 1m context window on Claude Code still 200k.  Only on the API.  they missed that from the marketing.",
+      "time": 1770370107,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "kmod",
+      "id": 46907680,
+      "parent": 46902223,
+      "text": "I think it&#x27;s interesting that they dropped the date from the API model name, and it&#x27;s just called &quot;claude-opus-4-6&quot;, vs the previous was &quot;claude-opus-4-5-20251101&quot;. This isn&#x27;t an alias like &quot;claude-opus-4-5&quot; was, it&#x27;s the actual model name. I think this means they&#x27;re comfortable with bumping the version number if they want to release a revision.",
+      "time": 1770339732,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "Philpax",
+      "id": 46902275,
+      "parent": 46902223,
+      "text": "I&#x27;m seeing it in my claude.ai model picker. Official announcement shouldn&#x27;t be long now.",
+      "time": 1770313379,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "endymion-light",
+      "id": 46911269,
+      "parent": 46902223,
+      "text": "Found it fantastic - used up my daily usage in two queries though!",
+      "time": 1770374606,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "simonw",
+      "id": 46902630,
+      "kids": [
+        46903237,
+        46903152,
+        46904071
+      ],
+      "parent": 46902223,
+      "text": "I&#x27;m disappointed that they&#x27;re removing the prefill option: <a href=\"https:&#x2F;&#x2F;platform.claude.com&#x2F;docs&#x2F;en&#x2F;about-claude&#x2F;models&#x2F;whats-new-claude-4-6#prefill-removal\" rel=\"nofollow\">https:&#x2F;&#x2F;platform.claude.com&#x2F;docs&#x2F;en&#x2F;about-claude&#x2F;models&#x2F;what...</a><p>&gt; Prefilling assistant messages (last-assistant-turn prefills) is not supported on Opus 4.6. Requests with prefilled assistant messages return a 400 error.<p>That was a really cool feature of the Claude API where you could force it to begin its response with e.g. `&lt;svg` - it was a great way of forcing the model into certain output patterns.<p>They suggest structured outputs or system prompting as the alternative but I really liked the prefill method, it felt more reliable to me.",
+      "time": 1770314837,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "vinhnx",
+      "id": 46909991,
+      "kids": [
+        46911702,
+        46911339
+      ],
+      "parent": 46902223,
+      "text": "Just used Opus 4.6 via GitHub Copilot. It feels very different. Inference seems slow for now. I guess Opus 4.6 has adaptive thinking activated by default.",
+      "time": 1770361666,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "anupamchugh",
+      "id": 46910306,
+      "parent": 46902223,
+      "text": "Agent teams nuke your tmux layout. The fix is one line: new-window instead of split-pane. Filed as a bug.",
+      "time": 1770365299,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "HacklesRaised",
+      "id": 46907658,
+      "parent": 46902223,
+      "text": "I didn&#x27;t think LLMs will make us more stupid, we were already scraping the bottom of the barrel.",
+      "time": 1770339562,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "AstroBen",
+      "id": 46903988,
+      "parent": 46902223,
+      "text": "Are these the coding tasks the highlighted terminal-bench 2.0 is referring to? <a href=\"https:&#x2F;&#x2F;www.tbench.ai&#x2F;registry&#x2F;terminal-bench&#x2F;2.0?categories=software-engineering&amp;tags=coding&amp;difficulties=\" rel=\"nofollow\">https:&#x2F;&#x2F;www.tbench.ai&#x2F;registry&#x2F;terminal-bench&#x2F;2.0?categories...</a><p>I&#x27;m curious what others think about these? There are only 8 tasks there specifically for coding",
+      "time": 1770320067,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "petters",
+      "id": 46904736,
+      "parent": 46902223,
+      "text": "&gt; We build Claude with Claude.<p>Yes and it shows. Gemini CLI often hangs and enters infinite loops. I bet the engineers at Google use something else internally.",
+      "time": 1770323171,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "rohitghumare",
+      "id": 46906185,
+      "parent": 46902223,
+      "text": "It brings agent swarms aka teams to claude code with this: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;rohitg00&#x2F;pro-workflow\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;rohitg00&#x2F;pro-workflow</a><p>But it takes lot of context as a experimental feature.<p>Use self-learning loop with hooks and claude.md to preserve memory.<p>I have shared plugin above of my setup. Try it.",
+      "time": 1770329920,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "rahulroy",
+      "id": 46908986,
+      "parent": 46902223,
+      "text": "Is anyone noticing reduced token consumption with Opus 4.6? This could be a release thing, but it would be interesting to observe see how it pans out once the hype cools off.",
+      "time": 1770350728,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "fergie",
+      "id": 46910257,
+      "kids": [
+        46910821
+      ],
+      "parent": 46902223,
+      "text": "Say I am just an average coder doing a days work with Claude. How much will that cost?",
+      "time": 1770364795,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "sega_sai",
+      "id": 46905675,
+      "kids": [
+        46908097
+      ],
+      "parent": 46902223,
+      "text": "Based on these news it seems that Google is losing this game. I like Gemini and their CLI has been getting better, but not enough to catch up. I don&#x27;t know if it is lack of dedicated models that is problem (my understanding Google&#x27;s CLI just relies on regular Gemini) or something else.",
+      "time": 1770327180,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "sutterd",
+      "id": 46909235,
+      "parent": 46902223,
+      "text": "I thought Opus 4.5 was an incredible quantum leap forward. I have used Opus 4.6 for a few hours and I hate it. Opus 4.5 would work interactively with me and ask questions. I loved that it would not do things you didn&#x27;t ask it to do. If it found a bug, it would tell me and ask me if I wanted to fix it. One time there was an obvious one and I didn&#x27;t want it to fix it. It left the bug. A lot of modesl could not have done that. The problem here is that sometimes when model think is a bug, they are breaking the code buyu fixing it. In my limited usage of Opus 4.6, it is not asking me clarifying questions and anything it comes across that it doesn&#x27;t like, it changes. It is not working with me. The magic is gone. It feels just like those other models I had used.<p>I will try again tomorrow and see how it goes.",
+      "time": 1770353076,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "Aressplink",
+      "id": 46911073,
+      "parent": 46902223,
+      "text": "Always searching for a shortcut like Kotlin DSL lang for claude.md but Meta resells  patent to Google as poetic Syntax.",
+      "time": 1770372768,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "jonatron",
+      "id": 46906541,
+      "kids": [
+        46906565
+      ],
+      "parent": 46902223,
+      "text": "Can someone ask: &quot;what is the current carrying capacity of 25mm multicore armoured thermoplastic insulated cables with aluminium conductors, on perforated cable tray?&quot; just to see how well it can look up information in BS 7671?",
+      "time": 1770331805,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "psim1",
+      "id": 46903221,
+      "kids": [
+        46903313
+      ],
+      "parent": 46902223,
+      "text": "I need an agent to summarize the buzzwordjargonsynergistic word salad into something understandable.",
+      "time": 1770317020,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "ra",
+      "id": 46906849,
+      "kids": [
+        46909006
+      ],
+      "parent": 46902223,
+      "text": "Why are Anthropic such a horrible company to deal with?",
+      "time": 1770333637,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "winterrx",
+      "id": 46902350,
+      "parent": 46902223,
+      "text": "Agentic search benchmarks are a big gap up. let&#x27;s see Codex release later today",
+      "time": 1770313694,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "osti",
+      "id": 46902371,
+      "kids": [
+        46902541,
+        46902689,
+        46902501
+      ],
+      "parent": 46902223,
+      "text": "Somehow regresses on SWE bench?",
+      "time": 1770313816,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "m-hodges",
+      "id": 46902352,
+      "kids": [
+        46902476
+      ],
+      "parent": 46902223,
+      "text": "&gt; In Claude Code, you can now assemble agent teams to work on tasks together.",
+      "time": 1770313709,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "rob",
+      "id": 46902405,
+      "parent": 46902223,
+      "text": "System Card: <a href=\"https:&#x2F;&#x2F;www-cdn.anthropic.com&#x2F;0dd865075ad3132672ee0ab40b05a53f14cf5288.pdf\" rel=\"nofollow\">https:&#x2F;&#x2F;www-cdn.anthropic.com&#x2F;0dd865075ad3132672ee0ab40b05a5...</a>",
+      "time": 1770313966,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "simianwords",
+      "id": 46902754,
+      "parent": 46902223,
+      "text": "Important: API cost of Opus 4.6 and 4.5 are the same - no change in pricing.",
+      "time": 1770315326,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "cc-magus",
+      "id": 46912676,
+      "parent": 46902223,
+      "text": "wow",
+      "time": 1770385052,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "niobe",
+      "id": 46905526,
+      "kids": [
+        46906120
+      ],
+      "parent": 46902223,
+      "text": "Is there a good technical breakdown of all these benchmarks that get used to market the latest greatest LLMs somewhere? Preferably impartial.",
+      "time": 1770326510,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "kingstnap",
+      "id": 46902394,
+      "parent": 46902223,
+      "text": "I was hoping for a Sonnet as well but Opus 4.6 is great too!",
+      "time": 1770313912,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "paxys",
+      "id": 46902711,
+      "kids": [
+        46902755,
+        46902843,
+        46903528
+      ],
+      "parent": 46902223,
+      "text": "Hmm all leaks had said this would be Claude 5. Wonder if it was a last minute demotion due to performance. Would explain the few days&#x27; delay as well.",
+      "time": 1770315150,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "techpression",
+      "id": 46911314,
+      "parent": 46902223,
+      "text": "First question I ask and it made up a completely new API with confidence. Challenging it made it browse the web and offer apologies and find another issue in the first reply.<p>I\u2019m very worried about the problems this will cause down the road for people not fact checking or working with things that scream at them when they\u2019re wrong.",
+      "time": 1770375021,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "sanufar",
+      "id": 46902605,
+      "parent": 46902223,
+      "text": "Works pretty nicely for research still, not seeing a substantial qualitative improvement over Opus 4.5.",
+      "time": 1770314734,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "zingar",
+      "id": 46904288,
+      "parent": 46902223,
+      "text": "Does this mean 4.5 will get cheaper &#x2F; take longer to exhaust my pro plan tokens?",
+      "time": 1770321331,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "EcommerceFlow",
+      "id": 46902675,
+      "kids": [
+        46904510
+      ],
+      "parent": 46902223,
+      "text": "Anecdotal, but it 1 shot fixed a UI bug that neither Opus 4.5&#x2F;Codex 5.2-high could fix.",
+      "time": 1770315006,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "mannanj",
+      "id": 46903016,
+      "kids": [
+        46908238
+      ],
+      "parent": 46902223,
+      "text": "Does anyone else think its unethical that large companies, Anthropic now include, just take and copy features that other developers or smaller companies work hard for and implement the intellectual property (whether or not patented) by them without attribution, compensation or otherwise credit for their work?<p>I know this is normalized culture for large corporate America and seems to be ok, I think its unethical, undignified and just wrong.<p>If you were in my room physically, built a lego block model of a beautiful home and then I just copied it and shared it with the world as my own invention, wouldn&#x27;t you think &quot;that guy&#x27;s a thief and a fraud&quot; but we normalize this kind of behavior in the software world. edit: I think even if we don&#x27;t yet have a great way to stop it or address the underlying problems leading to this way of behavior, we ought to at least talk about it more and bring awareness to it that &quot;hey that&#x27;s stealing - I want it to change&quot;.",
+      "time": 1770316245,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "swalsh",
+      "id": 46903381,
+      "kids": [
+        46910146
+      ],
+      "parent": 46902223,
+      "text": "What I\u2019d love is some small model specializing in reading long web pages, and extracting the key info.  Search fills the context very quickly, but if a cheap subagent could extract the important bits that problem might be reduced.",
+      "time": 1770317654,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "scirob",
+      "id": 46905506,
+      "parent": 46902223,
+      "text": "1M context window is a big bump very happy",
+      "time": 1770326420,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "small_model",
+      "id": 46902809,
+      "kids": [
+        46903535
+      ],
+      "parent": 46902223,
+      "text": "I have the max subscription wondering if this gives access to the new 1M context, or is it just the API that gets it?",
+      "time": 1770315502,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "dk8996",
+      "id": 46904485,
+      "parent": 46902223,
+      "text": "RIP weekend",
+      "time": 1770322150,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "jdthedisciple",
+      "id": 46903276,
+      "parent": 46902223,
+      "text": "For agentic use, it&#x27;s slightly worse than its predecessor Opus 4.5.<p>So for coding e.g. using Copilot there is no improvement here.",
+      "time": 1770317252,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "ricrom",
+      "id": 46905061,
+      "parent": 46902223,
+      "text": "They launched together ahah",
+      "time": 1770324482,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "gallerdude",
+      "id": 46904567,
+      "kids": [
+        46904597,
+        46904635
+      ],
+      "parent": 46902223,
+      "text": "Both Opus 4.6 and GPT-5.3 one shot a Gameboy emulator for me. Guess I need a better benchmark.",
+      "time": 1770322542,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "woeirua",
+      "id": 46904097,
+      "kids": [
+        46904445,
+        46904129
+      ],
+      "parent": 46902223,
+      "text": "Can we talk about how the performance of Opus 4.5 nosedived this morning during the rollout? It was <i>shocking</i> how bad it was, and after the rollout was done it immediately reverted to it&#x27;s previous behavior.<p>I get that Anthropic probably has to do hot rollouts, but IMO it would be way better for mission critical workflows to just be locked out of the system instead of get a vastly subpar response back.",
+      "time": 1770320572,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "ramesh31",
+      "id": 46902864,
+      "kids": [
+        46906533
+      ],
+      "parent": 46902223,
+      "text": "Am I alone in finding no use for Opus? Token costs are like 10x yet I see no difference at all vs. Sonnet with Claude Code.",
+      "time": 1770315753,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "heraldgeezer",
+      "id": 46902475,
+      "kids": [
+        46903770
+      ],
+      "parent": 46902223,
+      "text": "I love Claude but use the free version so would love a Sonnet &amp; Haiku update :)<p>I mainly use Haiku to save on tokens...<p>Also dont use CC but I use the chatbot site or app... Claude is just much better than GPT even in conversations. Straight to the point. No cringe emoji lists.<p>When Claude runs out I switch to Mistral Le Chat, also just the site or app. Or duck.ai has Haiku 3.5 in Free version.",
+      "time": 1770314193,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "cleverhoods",
+      "id": 46906033,
+      "parent": 46902223,
+      "text": "gonna run this trough instruction qa this weekend",
+      "time": 1770329056,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "sgammon",
+      "id": 46906038,
+      "parent": 46902223,
+      "text": "&gt; Claude simply cheats here and calls out to GCC for this phase<p>I see",
+      "time": 1770329075,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "michelsedgh",
+      "id": 46902502,
+      "kids": [
+        46902607
+      ],
+      "parent": 46902223,
+      "text": "More more more, accelerate accelerate m, more more more !!!!",
+      "time": 1770314370,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "stonking",
+      "id": 46908299,
+      "parent": 46902223,
+      "text": "I think I prefer Codex 5.3",
+      "time": 1770345187,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "NullHypothesist",
+      "id": 46902248,
+      "parent": 46902223,
+      "text": "Broken link :(",
+      "time": 1770313258,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "usefulposter",
+      "id": 46902323,
+      "parent": 46902223,
+      "text": "It&#x27;s out: <a href=\"https:&#x2F;&#x2F;x.com&#x2F;claudeai&#x2F;status&#x2F;2019467372609040752\" rel=\"nofollow\">https:&#x2F;&#x2F;x.com&#x2F;claudeai&#x2F;status&#x2F;2019467372609040752</a>",
+      "time": 1770313573,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "ZunarJ5",
+      "id": 46906581,
+      "parent": 46902223,
+      "text": "Well that swallowed my usage limits lmao. Nice, a modest improvement.",
+      "time": 1770332086,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "elliotbnvl",
+      "id": 46902688,
+      "parent": 46902223,
+      "text": "<i>in a first for our Opus-class models, Opus 4.6 features a 1M token context window in beta.</i>",
+      "time": 1770315063,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "casey2",
+      "id": 46907279,
+      "kids": [
+        46908254
+      ],
+      "parent": 46902223,
+      "text": "Google already won the AI race. It&#x27;s very silly to try and make AGI by hyperfocusing on outdated programming paradigms. You NEED multimodal to do anything remotely interesting with these systems.",
+      "time": 1770336458,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "Gusarich",
+      "id": 46902259,
+      "kids": [
+        46902316
+      ],
+      "parent": 46902223,
+      "text": "not out yet",
+      "time": 1770313304,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "tiahura",
+      "id": 46903357,
+      "kids": [
+        46903542
+      ],
+      "parent": 46902223,
+      "text": "when are Anthropic or OpenAI going to make a significant step forward on useful context size?",
+      "time": 1770317562,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "surajkumar5050",
+      "id": 46904793,
+      "kids": [
+        46905027,
+        46905268,
+        46905123,
+        46909462,
+        46905413,
+        46905473
+      ],
+      "parent": 46902223,
+      "text": "I think two things are getting conflated in this discussion.<p>First: marginal inference cost vs total business profitability. It\u2019s very plausible (and increasingly likely) that OpenAI&#x2F;Anthropic are profitable on a per-token marginal basis, especially given how cheap equivalent open-weight inference has become. Third-party providers are effectively price-discovering the floor for inference.<p>Second: model lifecycle economics. Training costs are lumpy, front-loaded, and hard to amortize cleanly. Even if inference margins are positive today, the question is whether those margins are sufficient to pay off the training run before the model is obsoleted by the next release. That\u2019s a very different problem than \u201care they losing money per request\u201d.<p>Both sides here can be right at the same time: inference can be profitable, while the overall model program is still underwater. Benchmarks and pricing debates don\u2019t really settle that, because they ignore cadence and depreciation.<p>IMO the interesting question isn\u2019t \u201care they subsidizing inference?\u201d but \u201chow long does a frontier model need to stay competitive for the economics to close?\u201d",
+      "time": 1770323496,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "siva7",
+      "id": 46903199,
+      "kids": [
+        46903645,
+        46903530,
+        46903676,
+        46903596,
+        46910324,
+        46903719,
+        46903999,
+        46903700,
+        46903594
+      ],
+      "parent": 46902223,
+      "text": "Epic, about 2&#x2F;3 of all comments here are jokes. Not because the model is a joke - it&#x27;s impressive. Not because HN turned to Reddit. \nIt seems to me some of most brilliant minds in IT are just getting tired.",
+      "time": 1770316948,
+      "type": "comment",
+      "depth": 0
+    },
+    {
+      "by": "GenerocUsername",
+      "id": 46902369,
+      "kids": [
+        46902421,
+        46902600,
+        46902447,
+        46903121,
+        46902901,
+        46902461,
+        46902839,
+        46903115,
+        46902590,
+        46903202,
+        46902776,
+        46902792,
+        46903269,
+        46902538,
+        46902493,
+        46902424,
+        46902878,
+        46902765
+      ],
+      "parent": 46902223,
+      "text": "This is huge. It only came out 8 minutes ago but I was already able to bootstrap a 12k per month revenue SaaS startup!",
+      "time": 1770313806,
+      "type": "comment",
+      "depth": 0
+    }
+  ],
+  "chat_history": [
+    {
+      "role": "user",
+      "content": "is it really a step ahead for the community or just minor upgrade ?"
+    },
+    {
+      "role": "assistant",
+      "content": "# Claude Opus 4.6: Major Step Forward or Minor Upgrade?\n\nBased on the provided article and community feedback, Claude Opus 4.6 represents a **significant advancement** for the AI community, though with some notable trade-offs.\n\n## Key Improvements That Indicate Real Progress\n\n### \ud83d\ude80 Breakthrough Capabilities\n- **1M Token Context Window**: This is explicitly described as \"a first for our Opus-class models\" and represents a massive leap in long-context processing\n- **Enhanced Agentic Performance**: Industry-leading scores on Terminal-Bench 2.0 and significant improvements in autonomous task execution\n- **Superior Long-Context Retrieval**: 76% score on 8-needle 1M benchmark vs 18.5% for Sonnet 4.5 - described as a \"qualitative shift\"\n\n### \ud83d\udcca Quantifiable Advantages\n- **GDPval-AA Performance**: Outperforms GPT-5.2 by 144 Elo points and Opus 4.5 by 190 points\n- **BrowseComp Leadership**: Best at locating hard-to-find information online\n- **Specialized Domain Excellence**: 90.2% score on BigLaw Bench, 2\u00d7 improvement in life sciences knowledge\n\n## Community Validation of Significant Progress\n\nSeveral users report transformative capabilities:\n\n> \"**What have I been missing**\" - rektlessness (Pro user trying Opus for first time)\n\n> \"**Unbelievable. Insane. This 'key poem' thing is particularly surreal**\" - jorl17 (analyzing 900 poems with 1M context)\n\n> \"**This feels like a watershed moment for spreadsheet agents**\" - Various users\n\n## Areas Where Trade-offs Exist\n\n### \u26a0\ufe0f Behavioral Changes\nSome users report concerning regressions:\n- **Reduced Interactivity**: Less willingness to ask clarifying questions compared to Opus 4.5\n- **\"Running Wild\" Behavior**: Executing tasks without proper stopping points\n- **Overthinking Simple Tasks**: Adding cost/latency to straightforward queries\n\n### \ud83d\udcb0 Cost Considerations\n- Same pricing structure ($5/$25 per million tokens) but potentially higher usage due to enhanced capabilities\n- Usage limits remain restrictive for many users\n\n## Mixed Community Reception\n\nThe feedback reveals a clear divide:\n\n**Positive Indicators:**\n- 49/50 spell identification in Harry Potter books (ck_one)\n- Superior performance on specialized benchmarks\n- Revolutionary 1M context window enabling new use cases\n\n**Concerning Issues:**\n- Reports of decreased reliability in basic tasks (atonse, andmarios)\n- Some users preferring competing models (stonking prefers Codex 5.3)\n- Regressions in interactive behavior (sutterd, steve_adams_86)\n\n## Conclusion\n\nClaude Opus 4.6 represents a **genuine step forward** for the AI community, particularly in:\n- Long-context processing capabilities\n- Agentic task execution\n- Specialized domain performance\n\nHowever, it's not uniformly superior - some users report regressions in interactive behavior and basic reliability. The significance lies in opening new possibilities (like 1M token processing) rather than incremental improvements across all dimensions.\n\nThe mixed reception suggests this is a **major upgrade in capability** but with **different optimization priorities** that may not suit all users' workflows equally.\n\n---\n\n*Note: Information about specific comparisons to other recent releases (like potential simultaneous launches with competing models) was mentioned in comments but not substantiated in the main article.*"
+    }
+  ]
+}

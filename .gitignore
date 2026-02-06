@@ -1,0 +1,20 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+ENV/
+env/
+
+# Environment variables
+.env
+
+# Reports
+reports/*.md
+!reports/.gitkeep
+
+# IDEs
+.vscode/
+.idea/
