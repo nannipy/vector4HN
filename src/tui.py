@@ -1,6 +1,6 @@
 from textual.app import App, ComposeResult
 from textual.containers import Container, Vertical, Horizontal
-from textual.widgets import Header, Footer, DataTable, Button, Label, Markdown, Input, RichLog, LoadingIndicator, Static, TextArea
+from textual.widgets import Header, Footer, DataTable, Button, Label, Markdown, Input, RichLog, LoadingIndicator, Static, TextArea, RadioButton, RadioSet
 from textual.screen import Screen
 from textual import on, work
 from textual.binding import Binding
@@ -20,6 +20,7 @@ class DashboardScreen(Screen):
     BINDINGS = [
         ("q", "quit", "Quit"), 
         ("r", "refresh", "Refresh"),
+        ("s", "settings", "Settings"),
         ("n", "next_page", "Next Page"),
         ("p", "prev_page", "Prev Page")
     ]
@@ -63,6 +64,9 @@ class DashboardScreen(Screen):
 
     def action_quit(self):
         self.app.exit()
+
+    def action_settings(self):
+        self.app.push_screen(SettingsScreen())
 
     @work
     async def load_stories(self) -> None:
@@ -171,7 +175,8 @@ class ProcessingScreen(Screen):
             
             # 4. Analyze (only if we don't have a report yet)
             if not existing_reports:
-                status.update("🤖 Ollama is Analyzing...")
+                provider_name = os.getenv("LLM_PROVIDER", "Ollama").capitalize()
+                status.update(f"🤖 {provider_name} is Analyzing...")
                 detail.update("Generating summary report...")
                 report = await analyzer.generate_report(story, article_text, comments)
                 
@@ -271,7 +276,8 @@ class ReportScreen(Screen):
     def action_copy_all(self) -> None:
         full_log = ""
         for msg in self.chat_history:
-            role = "You" if msg.get('role') == 'user' else "Ollama"
+            provider_name = os.getenv("LLM_PROVIDER", "Ollama").capitalize()
+            role = "You" if msg.get('role') == 'user' else provider_name
             content = msg.get('content', '')
             full_log += f"{role}: {content}\n\n"
         
@@ -290,7 +296,8 @@ class ReportScreen(Screen):
             # Populate TextArea and show it
             full_log = ""
             for msg in self.chat_history:
-                role = "You" if msg.get('role') == 'user' else "Ollama"
+                provider_name = os.getenv("LLM_PROVIDER", "Ollama").capitalize()
+                role = "You" if msg.get('role') == 'user' else provider_name
                 content = msg.get('content', '')
                 full_log += f"{role}:\n{content}\n\n"
             
@@ -334,7 +341,8 @@ class ReportScreen(Screen):
                 if role == 'user':
                     log.write(f"[bold green]You:[/bold green] {content}")
                 elif role == 'assistant':
-                    log.write(f"[bold blue]Ollama:[/bold blue]")
+                    provider_name = os.getenv("LLM_PROVIDER", "Ollama").capitalize()
+                    log.write(f"[bold blue]{provider_name}:[/bold blue]")
                     log.write(RichMarkdown(content))
                     log.write("-" * 20)
 
@@ -361,7 +369,8 @@ class ReportScreen(Screen):
         log = self.query_one(RichLog)
         
         # Add a placeholder for the response
-        log.write("[italic gray]Ollama is thinking...[/italic gray]")
+        provider_name = os.getenv("LLM_PROVIDER", "Ollama").capitalize()
+        log.write(f"[italic gray]{provider_name} is thinking...[/italic gray]")
         
         try:
             answer = await analyzer.chat_with_context(
@@ -379,22 +388,25 @@ class ReportScreen(Screen):
             self.chat_history.append({'role': 'user', 'content': question})
             self.chat_history.append({'role': 'assistant', 'content': answer})
             
-            log.write(f"[bold blue]Ollama:[/bold blue]")
+            provider_name = os.getenv("LLM_PROVIDER", "Ollama").capitalize()
+            log.write(f"[bold blue]{provider_name}:[/bold blue]")
             log.write(RichMarkdown(answer))
             log.write("-" * 20)
             
             # If in select mode, update it (though it might be jarring, so maybe wait for toggle)
             if self.select_mode:
+                provider_name = os.getenv("LLM_PROVIDER", "Ollama").capitalize()
                 text_area = self.query_one("#chat-text-area", TextArea)
-                text_area.text += f"\nYou:\n{question}\n\nOllama:\n{answer}\n\n"
+                text_area.text += f"\nYou:\n{question}\n\n{provider_name}:\n{answer}\n\n"
             
             # Append to Report File
             try:
                 timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 with open(self.filename, "a") as f:
+                    provider_name = os.getenv("LLM_PROVIDER", "Ollama").capitalize()
                     f.write(f"\n\n## Chat Log ({timestamp})\n")
                     f.write(f"**User**: {question}\n\n")
-                    f.write(f"**Ollama**: {answer}\n")
+                    f.write(f"**{provider_name}**: {answer}\n")
             except Exception as e:
                 log.write(f"[bold red]Error saving chat to report:[/bold red] {escape(str(e))}")
 
@@ -420,9 +432,118 @@ class ReportScreen(Screen):
     def action_back(self) -> None:
         self.app.pop_screen()
 
+class SettingsScreen(Screen):
+    BINDINGS = [
+        ("escape", "cancel", "Cancel"),
+        ("ctrl+s", "save", "Save"),
+    ]
+    
+    def compose(self) -> ComposeResult:
+        current_provider = os.getenv("LLM_PROVIDER", "ollama").lower()
+        current_ollama_model = os.getenv("OLLAMA_MODEL", "llama3")
+        current_gemini_model = os.getenv("GEMINI_MODEL", "gemini-3-flash-preview")
+        current_gemini_key = os.getenv("GEMINI_API_KEY", "")
+
+        yield Container(
+            Label("⚙️  LLM Settings", classes="header-label"),
+            
+            Label("Select Provider:", classes="settings-label"),
+            RadioSet(
+                RadioButton("Ollama (Local)", value=(current_provider == "ollama"), id="rb-ollama"),
+                RadioButton("Gemini (Cloud)", value=(current_provider == "gemini"), id="rb-gemini"),
+                id="provider-radios"
+            ),
+            
+            Label("Model Name:", classes="settings-label"),
+            Input(placeholder="e.g. llama3 or gemini-3-flash-preview", id="model-input"),
+            
+            Label("Gemini API Key (Required for Gemini):", classes="settings-label"),
+            Input(placeholder="AIza...", password=True, id="key-input", value=current_gemini_key),
+            
+            Horizontal(
+                Button("Save", variant="primary", id="save-btn"),
+                Button("Cancel", variant="error", id="cancel-btn"),
+                id="buttons-container"
+            ),
+            id="settings-container"
+        )
+
+    def on_mount(self):
+        # Set initial model value based on selected provider
+        provider = os.getenv("LLM_PROVIDER", "ollama")
+        model_input = self.query_one("#model-input", Input)
+        if provider == "gemini":
+             model_input.value = os.getenv("GEMINI_MODEL", "gemini-3-flash-preview")
+        else:
+             model_input.value = os.getenv("OLLAMA_MODEL", "llama3")
+
+    @on(RadioSet.Changed)
+    def on_provider_changed(self, event: RadioSet.Changed):
+        # Update default model when switching provider
+        model_input = self.query_one("#model-input", Input)
+        if event.pressed.id == "rb-gemini":
+            model_input.value = os.getenv("GEMINI_MODEL", "gemini-3-flash-preview")
+        else:
+             model_input.value = os.getenv("OLLAMA_MODEL", "llama3")
+
+    @on(Button.Pressed)
+    def on_button_pressed(self, event: Button.Pressed):
+        if event.button.id == "save-btn":
+            self.save_settings()
+        elif event.button.id == "cancel-btn":
+            self.app.pop_screen()
+            
+    def save_settings(self):
+        radios = self.query_one("#provider-radios", RadioSet)
+        selected_id = radios.pressed_button.id
+        
+        provider = "gemini" if selected_id == "rb-gemini" else "ollama"
+        model = self.query_one("#model-input", Input).value
+        api_key = self.query_one("#key-input", Input).value
+        
+        success = analyzer.set_provider(provider, model=model, api_key=api_key)
+        
+        if success:
+            self.notify(f"Settings Saved! Using {provider} ({model})")
+            self.app.pop_screen()
+        else:
+            self.notify("Error saving settings. Check logs/console.", severity="error")
+
+    def action_cancel(self):
+        self.app.pop_screen()
+
+    def action_save(self):
+        self.save_settings()
+
 class HNApp(App):
     TITLE = "Vector"
     CSS = """
+    SettingsScreen {
+        align: center middle;
+    }
+    
+    #settings-container {
+        width: 60;
+        height: auto;
+        border: solid green;
+        padding: 1 2;
+        background: $surface;
+    }
+    
+    .settings-label {
+        margin-top: 1;
+        text-style: bold;
+    }
+    
+    #buttons-container {
+        margin-top: 2;
+        align: center middle;
+    }
+    
+    Button {
+        margin: 0 1;
+    }
+
     #dashboard-container {
         height: 100%;
         align: center middle;

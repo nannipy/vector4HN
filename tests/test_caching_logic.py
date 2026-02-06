@@ -7,6 +7,9 @@ from unittest.mock import MagicMock, AsyncMock, patch, PropertyMock
 import sys
 
 # Add src to path
+import pytest
+
+# Add src to path
 sys.path.append(os.getcwd())
 
 from src.tui import ProcessingScreen, ReportScreen
@@ -16,6 +19,7 @@ HNBOT_TEST_MODE = True
 # We will just verify logic by instantiating the class and mocking the query_one method
 # and the app attribute.
 
+@pytest.mark.asyncio
 async def test_caching_logic():
     print("🧪 Starting Caching Logic Test...")
     
