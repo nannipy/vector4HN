@@ -15,6 +15,7 @@ except ImportError:
     HAS_GEMINI = False
 
 import ollama
+from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type, retry_if_result
 
 class LLMProvider(abc.ABC):
     @abc.abstractmethod
@@ -77,10 +78,20 @@ class GeminiProvider(LLMProvider):
         # It seems `client.aio.models.generate_content` is the way.
         
         start_time = time.perf_counter()
-        response = await self.client.aio.models.generate_content(
-            model=self.model,
-            contents=gemini_contents
+        
+        @retry(
+            stop=stop_after_attempt(3),
+            wait=wait_exponential(multiplier=1, min=2, max=10),
+            retry=retry_if_exception_type(Exception), # Be broad for now as we don't know the exact class
+            reraise=True
         )
+        async def _generate():
+            return await self.client.aio.models.generate_content(
+                model=self.model,
+                contents=gemini_contents
+            )
+            
+        response = await _generate()
         duration = time.perf_counter() - start_time
         
         usage = response.usage_metadata
@@ -217,7 +228,7 @@ class Analyzer:
             
             return response['content']
         except Exception as e:
-            return f"Error analyzing story: {str(e)}"
+            return f"ANALYSIS_ERROR: {str(e)}"
 
     async def chat_with_context(self, story: Dict[str, Any], article_text: str, comments: List[Dict[str, Any]], question: str, history: List[Dict[str, str]] = None) -> str:
         """

@@ -3,9 +3,10 @@ beautifulsoup4
 textual
 ollama
 python-dotenv
-pytest
-pytest-asyncio
 markdownify
 trafilatura
 google-genai
-tenacity
+
+[dev]
+pytest
+pytest-asyncio

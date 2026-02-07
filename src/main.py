@@ -56,6 +56,16 @@ def check_provider():
         return False
 
 def main():
+    # Detect project root (parent directory of this script's directory)
+    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    os.chdir(project_root)
+
+    if len(sys.argv) < 2 or sys.argv[1].lower() != "run":
+        print("Usage: vector run")
+        print("\nCommands:")
+        print("  run    Start the Hacker News Deep Dive Assistant")
+        sys.exit(0)
+
     setup_logging()
     # Check provider configuration
     if not check_provider():

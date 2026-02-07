@@ -234,6 +234,7 @@ class ReportScreen(Screen):
         ("ctrl+a", "copy_all", "Copy All Chat"),
         ("ctrl+s", "toggle_select", "Toggle Select Mode"),
         ("o", "view_article", "View Original"),
+        ("r", "retry", "Retry Analysis"),
     ]
 
     def __init__(self, story, article_text, comments, report_md, filename, context_filename, chat_history):
@@ -246,6 +247,7 @@ class ReportScreen(Screen):
         self.context_filename = context_filename
         self.chat_history = chat_history
         self.select_mode = False
+        self.is_error = report_md.startswith("ANALYSIS_ERROR:")
 
     def action_view_article(self) -> None:
         title = self.story.get("title", "Article")
@@ -330,6 +332,12 @@ class ReportScreen(Screen):
             ),
             classes="split-view"
         )
+        if self.is_error:
+            yield Horizontal(
+                Static("⚠️ Analysis Failed. Would you like to try again?"),
+                Button("Retry Analysis", variant="primary", id="retry-btn"),
+                id="error-footer"
+            )
         yield Footer()
 
     def on_mount(self) -> None:
@@ -428,6 +436,27 @@ class ReportScreen(Screen):
         finally:
             self.query_one(Input).disabled = False
             self.query_one(Input).focus()
+
+    async def action_retry(self) -> None:
+        await self._retry_implementation()
+
+    @on(Button.Pressed, "#retry-btn")
+    async def on_retry_pressed(self, event: Button.Pressed) -> None:
+        await self._retry_implementation()
+
+    async def _retry_implementation(self) -> None:
+        # Delete the failed report file
+        if os.path.exists(self.filename):
+            try:
+                os.remove(self.filename)
+                logging.info(f"Deleted failed report: {self.filename}")
+            except Exception as e:
+                self.notify(f"Error deleting report: {e}", severity="error")
+                return
+
+        # Pop the current ReportScreen and push ProcessingScreen (to start over)
+        self.app.pop_screen()
+        self.app.push_screen(ProcessingScreen(str(self.story.get("id"))))
 
     def action_back(self) -> None:
         self.app.pop_screen()
@@ -616,6 +645,19 @@ class HNApp(App):
 
     #article-view {
         padding: 1;
+    }
+
+    #error-footer {
+        height: 3;
+        background: $error;
+        color: $text;
+        align: center middle;
+        padding: 0 2;
+    }
+
+    #error-footer Static {
+        margin-right: 2;
+        text-style: bold;
     }
     """
 

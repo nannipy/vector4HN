@@ -89,15 +89,33 @@ Vector is a terminal-based tool that allows you to browse Hacker News, analyze a
 
 ## 📖 Usage
 
-Run the application using the virtual environment's Python:
+To use the `vector` command, first install the project in editable mode:
 
 ```bash
-./venv/bin/python3 main.py
+./venv/bin/pip install -e .
+```
+
+Then you can run the application directly:
+
+```bash
+./venv/bin/vector run
 ```
 
 Settings can be changed at runtime by pressing `S` on the dashboard.
 
-## 📊 Logging & Statistics
+### 🌍 Global Access
+
+To run `vector` from any directory, you can add an alias to your shell profile (e.g., `~/.zshrc` or `~/.bash_profile`):
+
+```bash
+alias vector='/Users/giovannibattistapernazza/Documents/Giovanni/Progetti/hnscratch/venv/bin/vector'
+```
+
+After adding the alias and restarting your terminal, you can simply run:
+
+```bash
+vector run
+```
 
 Vector automatically tracks its operations:
 -   **App Logs:** General application events are logged to `logs/app/app.log`.

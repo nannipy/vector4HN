@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: vector4HN
+Version: 0.1.0
+Summary: Hacker News Deep Dive Assistant
+Author: Giovanni Battista Pernazza
+Requires-Dist: httpx
+Requires-Dist: beautifulsoup4
+Requires-Dist: textual
+Requires-Dist: ollama
+Requires-Dist: python-dotenv
+Requires-Dist: markdownify
+Requires-Dist: trafilatura
+Requires-Dist: google-genai
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: pytest-asyncio; extra == "dev"
