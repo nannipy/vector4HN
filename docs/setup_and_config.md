@@ -18,7 +18,11 @@ Create a `.env` file in the root directory to customize behavior.
 | `GEMINI_MODEL` | `gemini-3-flash-preview` | The Gemini model to use. |
 
 ## Runtime Settings
-You can modify the `LLM_PROVIDER`, `MODEL`, and `API_KEY` while the application is running by pressing `S` on the Dashboard. Note that these changes are persistent during the session but will not overwrite your `.env` file.
+You can modify the `LLM_PROVIDER`, `MODEL`, and `API_KEY` while the application is running by pressing `S` on the Dashboard. 
+
+Pressing `L` on the Dashboard opens the **Library**, where you can browse and re-read previously generated analysis and chat sessions without incurring additional LLM costs.
+
+Note that settings changes are persistent during the session but will not overwrite your `.env` file.
 
 ## Logs and Statistics
 Vector stores data in the `logs/` directory:

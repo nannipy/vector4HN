@@ -22,12 +22,14 @@ Vector is a terminal-based tool that allows you to browse Hacker News, analyze a
     -   Community Sentiment & Controversy.
     -   Hooks.
 -   **Contextual Chat:** Engage in a deep-dive conversation about the article. The AI has access to the *full article text* and *nested comment hierarchy*.
+-   **Knowledge Library:** Quick access to all previously summarized articles with a dedicated split-view for comparisons.
 
 ### TUI (Terminal User Interface)
 -   **Interactive Dashboard:** Navigate stories with keyboard controls.
 -   **Split-View Report:** View the analysis report and chat window side-by-side.
 -   **Settings Screen:** Modify LLM provider, model, and API keys on the fly.
 -   **Article Reader:** View the full extracted article text in a dedicated screen.
+-   **Library Screen:** Browse and manage previously saved articles.
 -   **Select Mode:** Toggle a raw text view to easily select and copy chat content.
 -   **Clipboard Integration:** Built-in commands to copy the last answer or the entire chat history.
 
@@ -39,6 +41,7 @@ Vector is a terminal-based tool that allows you to browse Hacker News, analyze a
 | **Dashboard** | `↑` / `↓` | Navigate Stories |
 | | `Enter` | Analyze Selected Story |
 | | `R` | Refresh Feed |
+| | `L` | Open Article Library |
 | | `N` / `P` | Next / Previous Page |
 | | `S` | Open LLM Settings |
 | **Report** | `Esc` | Back to Dashboard |
@@ -46,6 +49,11 @@ Vector is a terminal-based tool that allows you to browse Hacker News, analyze a
 | | `Ctrl+S` | Toggle Select/Copy Mode |
 | | `Ctrl+C` | Copy Last Answer |
 | | `Ctrl+A` | Copy Full Chat History |
+| **Library** | `Esc` | Back to Dashboard |
+| | `Enter` | View Article Details |
+| | `R` | Refresh Library |
+| **Lib Detail**| `Esc` | Back to Library |
+| | `C` | Open Chat & Analysis Screen |
 
 ## 🛠️ Setup
 

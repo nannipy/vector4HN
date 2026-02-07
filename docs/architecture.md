@@ -37,6 +37,8 @@ graph TD
     - `ProcessingScreen`: Interstitial loading state.
     - `ReportScreen`: Split display for Analysis and Chat.
     - `ArticleScreen`: Full-text article viewer.
+    - `LibraryScreen`: List of saved articles and summaries.
+    - `LibraryDetailScreen`: Split display for original article vs. summary report.
     - `SettingsScreen`: Interactive LLM configuration (Provider, Model, API Keys).
 - **State Management**: Manages navigation stack and user input.
 

@@ -28,6 +28,8 @@ Manages LLM interactions through a provider-agnostic interface.
 The presentation layer built with Textual.
 
 - **DashboardScreen**: List view with pagination and settings access (`S`).
+- **LibraryScreen**: Browsing interface for previously cached reports and context files (`L`).
+- **LibraryDetailScreen**: Side-by-side view of the original article and its summary.
 - **ReportScreen**: Dual-pane display for reading reports and chatting with context.
 - **SettingsScreen**: Form-based LLM configuration.
 - **Caching Strategy**: Checks `reports/` for existing analysis before invoking the LLM.

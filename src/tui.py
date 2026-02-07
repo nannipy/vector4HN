@@ -21,6 +21,7 @@ class DashboardScreen(Screen):
         ("q", "quit", "Quit"), 
         ("r", "refresh", "Refresh"),
         ("s", "settings", "Settings"),
+        ("l", "library", "Library"),
         ("n", "next_page", "Next Page"),
         ("p", "prev_page", "Prev Page")
     ]
@@ -67,6 +68,9 @@ class DashboardScreen(Screen):
 
     def action_settings(self):
         self.app.push_screen(SettingsScreen())
+
+    def action_library(self):
+        self.app.push_screen(LibraryScreen())
 
     @work
     async def load_stories(self) -> None:
@@ -461,6 +465,158 @@ class ReportScreen(Screen):
     def action_back(self) -> None:
         self.app.pop_screen()
 
+class LibraryScreen(Screen):
+    BINDINGS = [
+        ("escape", "back", "Back"),
+        ("r", "refresh", "Refresh"),
+    ]
+
+    def compose(self) -> ComposeResult:
+        yield Header()
+        yield Container(
+            Label("📚 Library of Saved Articles", id="title"),
+            DataTable(cursor_type="row", id="library-table"),
+            id="dashboard-container"
+        )
+        yield Footer()
+
+    def on_mount(self) -> None:
+        table = self.query_one("#library-table", DataTable)
+        table.add_columns("ID", "Title", "Saved Date")
+        self.load_library()
+
+    def action_back(self):
+        self.app.pop_screen()
+
+    def action_refresh(self):
+        self.load_library()
+
+    def load_library(self) -> None:
+        table = self.query_one("#library-table", DataTable)
+        table.clear()
+        
+        # Find all context files
+        context_files = glob.glob("reports/hn_*_context.json")
+        entries = []
+        
+        for cf in context_files:
+            try:
+                # Extract ID from filename hn_ID_context.json
+                basename = os.path.basename(cf)
+                story_id = basename.split("_")[1]
+                
+                # Get modified time as saved date
+                mtime = os.path.getmtime(cf)
+                saved_date = datetime.datetime.fromtimestamp(mtime).strftime("%Y-%m-%d %H:%M")
+                
+                with open(cf, "r") as f:
+                    data = json.load(f)
+                    title = data.get("story", {}).get("title", "Unknown Title")
+                
+                entries.append((story_id, title, saved_date, cf))
+            except Exception:
+                continue
+        
+        # Sort by ID descending (usually reflects latest)
+        entries.sort(key=lambda x: int(x[0]), reverse=True)
+        
+        for entry in entries:
+            table.add_row(entry[0], entry[1], entry[2], key=entry[3])
+        
+        table.focus()
+
+    def on_data_table_row_selected(self, event: DataTable.RowSelected) -> None:
+        context_filename = event.row_key.value
+        self.app.push_screen(LibraryDetailScreen(context_filename))
+
+class LibraryDetailScreen(Screen):
+    BINDINGS = [
+        ("escape", "back", "Back to Library"),
+        ("c", "open_chat", "Open Chat"),
+    ]
+
+    def __init__(self, context_filename: str):
+        super().__init__()
+        self.context_filename = context_filename
+        self.story_id = os.path.basename(context_filename).split("_")[1]
+        
+    def compose(self) -> ComposeResult:
+        yield Header()
+        yield Container(
+            Vertical(
+                Label("📄 Original Article", classes="header-label"),
+                Markdown("", id="lib-article-view"),
+                id="report-pane"
+            ),
+            Vertical(
+                Label("📝 Summary Report", classes="header-label"),
+                Markdown("", id="lib-summary-view"),
+                id="chat-pane" 
+            ),
+            classes="split-view"
+        )
+        yield Horizontal(
+            Button("Open Chat & Analysis", variant="primary", id="open-chat-btn"),
+            id="library-footer"
+        )
+        yield Footer()
+
+    def on_mount(self) -> None:
+        self.load_data()
+
+    def load_data(self) -> None:
+        try:
+            with open(self.context_filename, "r") as f:
+                context = json.load(f)
+                self.story = context.get("story", {})
+                self.article_text = context.get("article_text", "")
+                self.comments = context.get("comments", [])
+                self.chat_history = context.get("chat_history", [])
+            
+            # Find the report MD file
+            report_pattern = f"reports/hn_{self.story_id}_*.md"
+            existing_reports = sorted(glob.glob(report_pattern), reverse=True)
+            
+            report_md = ""
+            self.report_filename = ""
+            if existing_reports:
+                self.report_filename = existing_reports[0]
+                with open(self.report_filename, "r") as f:
+                    report_md = f.read()
+            else:
+                report_md = "No summary report found for this article."
+
+            self.query_one("#lib-article-view", Markdown).update(self.article_text)
+            self.query_one("#lib-summary-view", Markdown).update(report_md)
+            
+        except Exception as e:
+            self.notify(f"Error loading library detail: {e}", severity="error")
+
+    def action_back(self):
+        self.app.pop_screen()
+
+    def action_open_chat(self):
+        # Push ReportScreen
+        # def __init__(self, story, article_text, comments, report_md, filename, context_filename, chat_history):
+        
+        # Reload report to be sure we have latest
+        with open(self.report_filename, "r") as f:
+            report_md = f.read()
+
+        self.app.push_screen(ReportScreen(
+            self.story, 
+            self.article_text, 
+            self.comments, 
+            report_md, 
+            self.report_filename, 
+            self.context_filename, 
+            self.chat_history
+        ))
+
+    @on(Button.Pressed, "#open-chat-btn")
+    def on_open_chat_pressed(self):
+        self.action_open_chat()
+
 class SettingsScreen(Screen):
     BINDINGS = [
         ("escape", "cancel", "Cancel"),
@@ -658,6 +814,12 @@ class HNApp(App):
     #error-footer Static {
         margin-right: 2;
         text-style: bold;
+    }
+
+    #library-footer {
+        height: 3;
+        background: $surface;
+        align: center middle;
     }
     """
 
