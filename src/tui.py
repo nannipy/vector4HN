@@ -324,7 +324,7 @@ class ReportScreen(Screen):
                 id="report-pane"
             ),
             Vertical(
-                Label("💬 Deep Dive Chat", classes="header-label"),
+                Label("💬 Chat", classes="header-label"),
                 RichLog(id="chat-log", markup=True, wrap=True),
                 TextArea(id="chat-text-area", read_only=True),
                 Input(placeholder="Ask about specific arguments...", id="chat-input"),

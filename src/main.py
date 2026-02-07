@@ -63,7 +63,7 @@ def main():
     if len(sys.argv) < 2 or sys.argv[1].lower() != "run":
         print("Usage: vector run")
         print("\nCommands:")
-        print("  run    Start the Hacker News Deep Dive Assistant")
+        print("  run    Start the Hacker News Assistant")
         sys.exit(0)
 
     setup_logging()

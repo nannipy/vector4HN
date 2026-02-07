@@ -20,6 +20,3 @@ reports/*.json
 .vscode/
 .idea/
 logs
-logs/app/app.log
-logs/stats/usage_stats.csv
-logs/app/app.log

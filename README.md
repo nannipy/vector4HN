@@ -1,4 +1,4 @@
-# Vector - Hacker News Deep Dive Assistant
+# Vector - Hacker News Assistant
 
 Vector is a terminal-based tool that allows you to browse Hacker News, analyze articles and discussions using local LLMs (via Ollama) or cloud-based LLMs (via Google Gemini), and engage in deep-dive chats about the content.
 
@@ -20,7 +20,7 @@ Vector is a terminal-based tool that allows you to browse Hacker News, analyze a
     -   3-sentence summary.
     -   Pros & Cons / Key Arguments.
     -   Community Sentiment & Controversy.
-    -   Deep Dive Hooks.
+    -   Hooks.
 -   **Contextual Chat:** Engage in a deep-dive conversation about the article. The AI has access to the *full article text* and *nested comment hierarchy*.
 
 ### TUI (Terminal User Interface)

@@ -208,7 +208,7 @@ class Analyzer:
         ## 💬 Community Sentiment
         (What are the commenters saying? What is the controversy? What are the top insights?)
         
-        ## 🧠 Deep Dive Hooks
+        ## 🧠 Hooks
         (List 3 specific complex topics mentioned in this thread that the user might want to ask more about)
         """
         
